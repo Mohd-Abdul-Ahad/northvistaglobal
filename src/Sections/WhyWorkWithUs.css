@@ -1,0 +1,197 @@
+.why-work-with-us {
+  padding: 5rem 1rem;
+  background-color: #F8F9FA;
+  font-family: "Inter", sans-serif;
+}
+
+/* Header Styles */
+.wwu-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.wwu-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #1E453E;
+  margin-bottom: 1rem;
+}
+
+.wwu-subtitle {
+  font-size: 1.25rem;
+  color: #6B7280;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Benefits Grid */
+.wwu-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 5rem;
+}
+
+.benefit-item {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+.benefit-item:nth-child(1) { animation-delay: 0.1s; }
+.benefit-item:nth-child(2) { animation-delay: 0.2s; }
+.benefit-item:nth-child(3) { animation-delay: 0.3s; }
+.benefit-item:nth-child(4) { animation-delay: 0.4s; }
+
+.benefit-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.benefit-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1E453E;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.benefit-description {
+  color: #6B7280;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* CTA Banner */
+.wwu-cta-banner {
+  background: linear-gradient(135deg, #1E453E 0%, #2D3748 100%);
+  color: white;
+  padding: 4rem 2rem;
+  border-radius: 12px;
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.cta-subtitle {
+  font-size: 1.125rem;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.cta-btn {
+  padding: 0.875rem 1.75rem;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-btn.primary {
+  background-color: #C44D34;
+  color: white;
+  border: none;
+}
+
+.cta-btn.primary:hover {
+  background-color: #b3452e;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(196, 77, 52, 0.3);
+}
+
+.cta-btn.secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-btn.secondary:hover {
+  background-color: white;
+  color: #1E453E;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .why-work-with-us {
+    padding: 3rem 1rem;
+  }
+  
+  .wwu-title {
+    font-size: 2rem;
+  }
+  
+  .wwu-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .wwu-benefits {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-title {
+    font-size: 1.75rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
