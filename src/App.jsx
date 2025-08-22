@@ -11,7 +11,7 @@ import FAQSection from "./Sections/FAQSection";
 import ContactSection from "./Sections/ContactSection";
 import NewsSection from "./Sections/NewsSection";
 import Footer from "./Components/Footer";
-import TrustedPartners from "./Sections/Trustedpartners";
+import TrustedPartners from "./Sections/TrustedBy";
 import WhyChooseUs from "./Sections/WhyChooseUs";
 import FinalCTABanner from "./Sections/FinalCtaBanner";
 import LeadershipSection from "./Sections/LeadershipSection";
@@ -20,17 +20,16 @@ import WhyWorkWithUs from "./Sections/WhyWorkWithUs";
 function App() {
   return (
     <>
-      <Herobanner/>
-      <TrustedPartners/>
-      <AboutSection/>
-      <ServicesSection/>
-      <WhyChooseUs/>
-      <LeadershipSection/>
-      <ProgramsSection/>
-      <NewsSection/>
-      <WhyWorkWithUs/>
-      <ContactSection/>
-      <Footer/>
+      <Herobanner />
+      <TrustedPartners />
+      <ProgramsSection />
+      <WhyChooseUs />
+      <AboutSection />
+      <LeadershipSection />
+      <WhyWorkWithUs />
+      <NewsSection />
+      <ContactSection />
+      <Footer />
     </>
   );
 }

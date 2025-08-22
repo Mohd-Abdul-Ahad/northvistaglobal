@@ -2,7 +2,7 @@ import React from 'react';
 
 const FinalCTABanner = () => {
   return (
-    <section className="bg-gradient-to-r from-[#1E453E] to-[#2D3748] py-16 px-4 md:px-8 lg:px-16 text-white">
+    <section className="bg-[#1E453E]  py-16 px-4 md:px-8 lg:px-16 text-white">
       <div className="max-w-6xl mx-auto text-center animate-fade-in">
         <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-semibold mb-6">
           Begin Your Global Journey Today

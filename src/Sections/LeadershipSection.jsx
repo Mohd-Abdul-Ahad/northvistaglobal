@@ -62,7 +62,7 @@ const LeadershipSection = () => {
 
           {/* Values Section */}
           <div className="animate-fade-in">
-            <div className="bg-gradient-to-br from-[#1E453E] to-[#2D3748] text-white rounded-xl p-8 h-full">
+            <div className="bg-[#1E453E] text-white rounded-xl p-8 h-full">
               <h2 className="font-playfair text-3xl font-semibold mb-8 text-center">Our Values</h2>
               
               <div className="space-y-6">

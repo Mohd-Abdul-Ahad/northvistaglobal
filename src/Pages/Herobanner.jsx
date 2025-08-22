@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../Components/Navbar";
 import Topbar from "../Components/Topbar";
+import HeroBannerImg from "../assets/Images/herobannerimgg.png";
 
 const Herobanner = () => {
   const [isTopbarVisible, setIsTopbarVisible] = useState(true);
@@ -20,7 +21,7 @@ const Herobanner = () => {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1770&q=80')`,
+          backgroundImage: `url(${HeroBannerImg})`,
         }}
       ></div>
 
@@ -50,7 +51,11 @@ const Herobanner = () => {
             </h1>
 
             <p className="mainTxt text-gray-200 text-lg md:text-xl leading-relaxed">
-              At North Vista Global, we empower investors, entrepreneurs, and retirees to transcend borders. Through strategic investment immigration, retiree residency, and digital nomad programs, we create seamless pathways to new markets, enhanced mobility, and a secure future for your family.
+              At North Vista Global, we empower investors, entrepreneurs, and
+              retirees to transcend borders. Through strategic investment
+              immigration, retiree residency, and digital nomad programs, we
+              create seamless pathways to new markets, enhanced mobility, and a
+              secure future for your family.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">

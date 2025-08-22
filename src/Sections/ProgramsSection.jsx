@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ProgramsSection = () => {
+  const [activeTab, setActiveTab] = useState("residence");
+
   // Flag mapping for country codes
   const flagIcons = {
     USA: "🇺🇸",
@@ -26,128 +28,163 @@ const ProgramsSection = () => {
       description: "Green Card through $800,000+ investment.",
       investment: "From $800,000",
       flag: "USA",
+      processing: "24-36 months",
     },
     {
       name: "Canada PNP",
       description: "Entrepreneurial PR pathways.",
+      investment: "Contact For Details",
       flag: "CANADA",
+      processing: "12-24 months",
     },
     {
       name: "Europe Golden Visas",
       description: "Portugal, Greece, Malta.",
+      investment: "Contact For Details",
       flag: "EUROPE",
+      processing: "6-12 months",
     },
     {
       name: "Caribbean CBI",
       description: "Fast-track passports.",
+      investment: "Contact For Details",
       flag: "CARIBBEAN",
+      processing: "3-6 months",
     },
     {
       name: "UAE Golden Visa",
       description: "10-year renewable residency.",
+      investment: "Contact For Details",
       flag: "UAE",
+      processing: "2-4 months",
     },
   ];
 
   const residencePrograms = [
     {
       name: "EB-5 Investor Visa",
-      description:
-        "Secure U.S. Green Cards through capital investment.",
+      description: "Secure U.S. Green Cards through capital investment.",
+      investment: "Contact For Details",
       flag: "USA",
+      processing: "24-36 months",
     },
     {
       name: "PNP Entrepreneur Streams",
-      description:
-        "Pathway to Canadian residency through business.",
+      description: "Pathway to Canadian residency through business.",
+      investment: "Contact For Details",
       flag: "CANADA",
+      processing: "12-24 months",
     },
     {
       name: "Portugal Golden Visa",
-      description:
-        "Residency with Schengen mobility.",
+      description: "Residency with Schengen mobility.",
+      investment: "Contact For Details",
       flag: "PORTUGAL",
+      processing: "6-12 months",
     },
     {
       name: "Caribbean Citizenship by Investment",
-      description:
-        "Fast-track passports with visa-free access.",
+      description: "Fast-track passports with visa-free access.",
+      investment: "Contact For Details",
       flag: "CARIBBEAN",
+      processing: "3-6 months",
     },
     {
-      name: "Retiree Residency",
-      description:
-        "Premium retirement lifestyle abroad.",
+      name: "Panama Retiree Residency",
+      description: "Premium retirement lifestyle abroad.",
+      investment: "Contact For Details",
       flag: "PANAMA",
-    },
-     {
-      name: "Retiree Residency",
-      description:
-        "Premium retirement lifestyle abroad.",
-      flag: "MAURITIUS",
+      processing: "2-4 months",
     },
     {
-      name: "Retiree Residency",
-      description:
-        "Premium retirement lifestyle abroad.",
+      name: "Mauritius Retiree Residency",
+      description: "Premium retirement lifestyle abroad.",
+      investment: "Contact For Details",
+      flag: "MAURITIUS",
+      processing: "2-3 months",
+    },
+    {
+      name: "Thailand Retiree Residency",
+      description: "Premium retirement lifestyle abroad.",
+      investment: "Contact For Details",
       flag: "THAILAND",
+      processing: "2-3 months",
     },
   ];
 
   const digitalNomadPrograms = [
     {
       name: "Portugal",
-
+      description: "Digital Nomad Visa for remote workers.",
       benefits: "Legal residency, tax efficiency, global networking.",
+      investment: "Contact For Details",
       flag: "PORTUGAL",
+      processing: "4-6 weeks",
     },
     {
       name: "Estonia",
-
+      description: "Digital Nomad Visa for location-independent professionals.",
       benefits: "Legal residency, tax efficiency, global networking.",
+      investment: "Contact For Details",
       flag: "ESTONIA",
+      processing: "3-4 weeks",
     },
     {
       name: "Panama",
-
+      description: "Remote Worker Visa program.",
       benefits: "Legal residency, tax efficiency, global networking.",
+      investment: "Contact For Details",
       flag: "PANAMA",
+      processing: "4-6 weeks",
     },
     {
       name: "Brazil",
-
+      description: "Digital Nomad Visa for remote professionals.",
       benefits: "Legal residency, tax efficiency, global networking.",
+      investment: "Contact For Details",
       flag: "BRAZIL",
+      processing: "4-8 weeks",
     },
     {
       name: "Thailand",
+      description: "Long-Term Resident Visa for remote workers.",
       benefits: "Legal residency, tax efficiency, global networking.",
+      investment: "Contact For Details",
       flag: "THAILAND",
+      processing: "6-8 weeks",
     },
     {
       name: "Indonesia",
+      description: "B211A Visa for digital nomads.",
       benefits: "Legal residency, tax efficiency, global networking.",
+      investment: "Contact For Details",
       flag: "INDONESIA",
+      processing: "4-6 weeks",
     },
   ];
 
   const retireeResidencySolutions = [
     {
       name: "Panama Pensionado",
-      description: "Pensionado Visa.",
+      description: "Pensionado Visa for retirees with guaranteed income.",
+      investment: "Contact For Details",
       flag: "PANAMA",
+      processing: "2-3 months",
     },
     {
       name: "Mauritius Retirement",
       description:
-        "Retiree Residence Permit.",
+        "Retiree Residence Permit for those seeking tropical retirement.",
+      investment: "Contact For Details",
       flag: "MAURITIUS",
+      processing: "2-3 months",
     },
     {
       name: "Thailand Retirement",
-      description:
-        "O-A & O-X Retirement Visas.",
+      description: "O-A & O-X Retirement Visas for long-term stays.",
+      investment: "Contact For Details",
       flag: "THAILAND",
+      processing: "1-2 months",
     },
   ];
 
@@ -157,18 +194,21 @@ const ProgramsSection = () => {
       description:
         "International company formation and corporate structuring services.",
       icon: "🏢",
+      benefits: "Tax optimization, liability protection, global expansion",
     },
     {
       name: "Executive Relocation",
       description:
         "Comprehensive relocation services for executives and key personnel.",
       icon: "✈️",
+      benefits: "Visa assistance, housing, cultural integration",
     },
     {
       name: "Cross-Border Expansion",
       description:
         "Market entry strategy and implementation across jurisdictions.",
       icon: "🌐",
+      benefits: "Market research, legal compliance, local partnerships",
     },
   ];
 
@@ -202,68 +242,126 @@ const ProgramsSection = () => {
     },
   ];
 
-  // Unified Card Component
-  const ProgramCard = ({ program, type, showInvestment = true }) => (
-    <div className="bg-white p-6 rounded-sm shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 h-full flex flex-col group">
+  // Tab navigation component
+  const TabNavigation = () => (
+    <div className="flex flex-wrap justify-center gap-2 mb-10">
+      <button
+        className={`px-5 py-2 rounded-full font-medium transition-all ${
+          activeTab === "residence"
+            ? "bg-[#1E453E] text-white"
+            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+        }`}
+        onClick={() => setActiveTab("residence")}
+      >
+        Residence Programs
+      </button>
+      <button
+        className={`px-5 py-2 rounded-full font-medium transition-all ${
+          activeTab === "citizenship"
+            ? "bg-[#1E453E] text-white"
+            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+        }`}
+        onClick={() => setActiveTab("citizenship")}
+      >
+        Citizenship
+      </button>
+      <button
+        className={`px-5 py-2 rounded-full font-medium transition-all ${
+          activeTab === "digital"
+            ? "bg-[#1E453E] text-white"
+            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+        }`}
+        onClick={() => setActiveTab("digital")}
+      >
+        Digital Nomad
+      </button>
+      <button
+        className={`px-5 py-2 rounded-full font-medium transition-all ${
+          activeTab === "retirement"
+            ? "bg-[#1E453E] text-white"
+            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+        }`}
+        onClick={() => setActiveTab("retirement")}
+      >
+        Retirement
+      </button>
+      <button
+        className={`px-5 py-2 rounded-full font-medium transition-all ${
+          activeTab === "business"
+            ? "bg-[#1E453E] text-white"
+            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+        }`}
+        onClick={() => setActiveTab("business")}
+      >
+        Business
+      </button>
+      <button
+        className={`px-5 py-2 rounded-full font-medium transition-all ${
+          activeTab === "legacy"
+            ? "bg-[#1E453E] text-white"
+            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+        }`}
+        onClick={() => setActiveTab("legacy")}
+      >
+        Legacy Planning
+      </button>
+    </div>
+  );
+
+  // Program Card Component
+  const ProgramCard = ({ program, type }) => (
+    <div className="bg-white p-5 rounded-lg border border-gray-200 h-full flex flex-col transition-all duration-300 hover:shadow-md">
       <div className="flex-grow">
-        <div className="flex items-center justify-between mb-4">
-          <div className="text-3xl">
-            {flagIcons[program.flag] || program.icon || program.flag}
+        <div className="flex items-center justify-between mb-3">
+          <div className="text-2xl">
+            {flagIcons[program.flag] || program.icon}
           </div>
-          {type && (
-            <div className="bg-[#F8F9FA] text-[#1E453E] text-xs font-medium px-3 py-1 rounded-sm">
-              {type}
-            </div>
-          )}
+          <div className="bg-[#F0F7F4] text-[#1E453E] text-xs font-medium px-2 py-1 rounded">
+            {type}
+          </div>
         </div>
 
-        <h3 className="boldTxt text-xl text-[#2D3748] mb-3 group-hover:text-[#1E453E] transition-colors duration-300">
+        <h3 className="font-bold text-lg text-[#2D3748] mb-2">
           {program.name}
         </h3>
 
-        <p className="mainTxt text-[#6B7280] mb-4 leading-relaxed">
+        <p className="text-[#4B5563] text-sm mb-3 leading-relaxed">
           {program.description}
         </p>
 
         {program.benefits && (
-          <div className="mb-4">
-            <p className="mainTxt text-[#1E453E] text-sm font-medium mb-1">
-              Benefits:
-            </p>
-            <p className="mainTxt text-[#6B7280] text-sm">{program.benefits}</p>
+          <div className="mb-3">
+            <p className="text-[#1E453E] text-xs font-medium mb-1">Benefits:</p>
+            <p className="text-[#4B5563] text-xs">{program.benefits}</p>
           </div>
         )}
       </div>
 
-      <div className="border-t border-gray-100 pt-4 mt-auto">
-        <div className="flex justify-between items-center mb-4">
-          {showInvestment && program.investment && (
+      <div className="border-t border-gray-100 pt-3 mt-auto">
+        <div className="flex justify-between items-center mb-3">
+          {program.investment && (
             <div>
-              <p className="mainTxt text-xs text-[#6B7280] uppercase tracking-wide">
+              <p className="text-xs text-[#6B7280] uppercase tracking-wide mb-1">
                 Investment
               </p>
-              <p className="boldTxt text-[#1E453E] text-lg">
+              <p className="font-semibold text-[#1E453E]">
                 {program.investment}
               </p>
             </div>
           )}
 
           {program.processing && (
-            <div
-              className={
-                showInvestment && program.investment ? "text-right" : ""
-              }
-            >
-              <p className="mainTxt text-xs text-[#6B7280] uppercase tracking-wide">
+            <div className="text-right">
+              <p className="text-xs text-[#6B7280] uppercase tracking-wide mb-1">
                 Processing
               </p>
-              <p className="mainTxt text-[#6B7280]">{program.processing}</p>
+              <p className="text-[#4B5563] text-sm">{program.processing}</p>
             </div>
           )}
         </div>
 
-        <button className="w-full px-4 py-3 bg-[#1E453E] text-white hover:bg-[#2D3748] rounded-sm mainTxt font-medium transition-colors duration-300 btn-hover">
-          Program Details
+        <button className="w-full px-4 py-2.5 bg-[#1E453E] text-white hover:bg-[#2D3748] rounded text-sm font-medium transition-colors duration-300">
+          Learn More
         </button>
       </div>
     </div>
@@ -271,19 +369,15 @@ const ProgramsSection = () => {
 
   // Section Header Component
   const SectionHeader = ({ title, description }) => (
-    <div className="text-center mb-12">
-      <div className="flex items-center justify-center gap-2 mb-4">
-        <div className="w-12 h-0.5 bg-[#C44D34]"></div>
-        <span className="mainTxt text-[#C44D34] text-sm font-medium uppercase tracking-wide">
+    <div className="text-center mb-8">
+      <div className="inline-flex items-center justify-center gap-2 mb-2 px-4 py-1 bg-[#FEF2E8] rounded-full">
+        <span className="text-[#C44D34] text-xs font-medium uppercase tracking-wide">
           Programs
         </span>
-        <div className="w-12 h-0.5 bg-[#C44D34]"></div>
       </div>
-      <h2 className="boldTxt text-3xl md:text-4xl text-[#2D3748] mb-4">
-        {title}
-      </h2>
+      <h2 className="font-bold text-2xl text-[#2D3748] mb-2">{title}</h2>
       {description && (
-        <p className="mainTxt text-[#6B7280] max-w-2xl mx-auto">
+        <p className="text-[#4B5563] max-w-2xl mx-auto text-sm">
           {description}
         </p>
       )}
@@ -291,153 +385,141 @@ const ProgramsSection = () => {
   );
 
   return (
-    <div className="w-full py-16 bg-white">
-      <div className="container mx-auto px-6 lg:px-12 xl:px-24">
-        {/* Residence Programs */}
-        <div className="mb-16">
-          <SectionHeader
-            title="Featured Immigration Programs"
-            description="Residence by Investment Programs for global mobility"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {residencePrograms.map((program, index) => (
-              <ProgramCard
-                key={index}
-                program={program}
-                type="Residency"
-                showInvestment={true}
-              />
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <button className="px-8 py-3 bg-[#1E453E] text-white hover:bg-[#2D3748] rounded-sm mainTxt font-medium transition-all duration-300 btn-hover">
-              Explore All Programs
-            </button>
-          </div>
-        </div>
-        {/* Citizenship Programs */}
-        <div className="mb-16">
-          <SectionHeader
-            title="Residency & Citizenship by Investment"
-            description="Premium investment migration programs for global mobility"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {citizenshipPrograms.map((program, index) => (
-              <ProgramCard
-                key={index}
-                program={program}
-                type="Citizenship"
-                showInvestment={true}
-              />
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <button className="px-8 py-3 bg-[#1E453E] text-white hover:bg-[#2D3748] rounded-sm mainTxt font-medium transition-all duration-300 btn-hover">
-              Explore Investment Residency Programs
-            </button>
-          </div>
+    <div className="w-full py-10 bg-white">
+      <div className="container mx-auto px-4">
+        {/* Header Section */}
+        <div className="text-center mb-10">
+          <h1 className="font-bold text-2xl md:text-3xl text-[#2D3748] mb-3">
+            Featured Immigration Programs
+          </h1>
         </div>
 
-        {/* Digital Nomad Programs */}
-        <div className="mb-16">
-          <SectionHeader
-            title="Digital Nomad Programs"
-            description="Remote work visas for location-independent professionals"
-          />
+        {/* Tab Navigation */}
+        <TabNavigation />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {digitalNomadPrograms.map((program, index) => (
-              <ProgramCard
-                key={index}
-                program={program}
-                type="Digital Nomad"
-                showInvestment={false}
+        {/* Tab Content */}
+        <div className="mb-12">
+          {activeTab === "residence" && (
+            <>
+              <SectionHeader
+                title="Residence by Investment Programs"
+                description="Secure residency through investment in countries worldwide"
               />
-            ))}
-          </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {residencePrograms.map((program, index) => (
+                  <ProgramCard key={index} program={program} type="Residency" />
+                ))}
+              </div>
+            </>
+          )}
 
-          <div className="text-center mt-12">
-            <button className="px-8 py-3 bg-[#1E453E] text-white hover:bg-[#2D3748] rounded-sm mainTxt font-medium transition-all duration-300 btn-hover">
-              View Digital Nomad Options
-            </button>
-          </div>
+          {activeTab === "citizenship" && (
+            <>
+              <SectionHeader
+                title="Citizenship by Investment Programs"
+                description="Obtain second citizenship through investment"
+              />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {citizenshipPrograms.map((program, index) => (
+                  <ProgramCard
+                    key={index}
+                    program={program}
+                    type="Citizenship"
+                  />
+                ))}
+              </div>
+            </>
+          )}
+
+          {activeTab === "digital" && (
+            <>
+              <SectionHeader
+                title="Digital Nomad Programs"
+                description="Legal residency options for remote workers"
+              />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {digitalNomadPrograms.map((program, index) => (
+                  <ProgramCard
+                    key={index}
+                    program={program}
+                    type="Digital Nomad"
+                  />
+                ))}
+              </div>
+            </>
+          )}
+
+          {activeTab === "retirement" && (
+            <>
+              <SectionHeader
+                title="Retiree Residency Solutions"
+                description
+                Premium
+                retirement
+                lifestyle
+                destinations
+                worldwide
+              />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {retireeResidencySolutions.map((program, index) => (
+                  <ProgramCard
+                    key={index}
+                    program={program}
+                    type="Retirement"
+                  />
+                ))}
+              </div>
+            </>
+          )}
+
+          {activeTab === "business" && (
+            <>
+              <SectionHeader
+                title="Business Expansion Solutions"
+                description="Strategic solutions for international business growth"
+              />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {businessExpansionSolutions.map((program, index) => (
+                  <ProgramCard key={index} program={program} type="Business" />
+                ))}
+              </div>
+            </>
+          )}
+
+          {activeTab === "legacy" && (
+            <>
+              <SectionHeader
+                title="Legacy Planning Solutions"
+                description="Comprehensive solutions for multi-generational wealth and security"
+              />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {legacyPlanningSolutions.map((program, index) => (
+                  <ProgramCard
+                    key={index}
+                    program={program}
+                    type="Legacy Planning"
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </div>
 
-        {/* Retiree Residency Solutions */}
-        <div className="mb-16">
-          <SectionHeader
-            title="Retiree Residency Solutions"
-            description="Premium retirement lifestyle destinations worldwide"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {retireeResidencySolutions.map((program, index) => (
-              <ProgramCard
-                key={index}
-                program={program}
-                type="Retirement"
-                showInvestment={false}
-              />
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <button className="px-8 py-3 bg-[#1E453E] text-white hover:bg-[#2D3748] rounded-sm mainTxt font-medium transition-all duration-300 btn-hover">
-              Plan Your Retirement Abroad
+        {/* Consultation CTA Section */}
+        <div className="bg-[#F0F7F4] rounded-lg p-6 md:p-8 text-center">
+          <h2 className="font-bold text-xl md:text-2xl text-[#2D3748] mb-3">
+            Need Personalized Guidance?
+          </h2>
+          <p className="text-[#4B5563] max-w-2xl mx-auto mb-5">
+            Our immigration experts are ready to help you find the perfect
+            program for your needs.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <button className="px-6 py-2.5 bg-[#1E453E] text-white hover:bg-[#2D3748] rounded font-medium transition-colors duration-300">
+              Schedule a Free Consultation
             </button>
-          </div>
-        </div>
-
-        {/* Business Expansion Solutions */}
-        <div className="mb-16">
-          <SectionHeader
-            title="Business Expansion & Global Mobility"
-            description="Strategic solutions for international business growth"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {businessExpansionSolutions.map((program, index) => (
-              <ProgramCard
-                key={index}
-                program={program}
-                type="Business"
-                showInvestment={false}
-              />
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <button className="px-8 py-3 bg-[#1E453E] text-white hover:bg-[#2D3748] rounded-sm mainTxt font-medium transition-all duration-300 btn-hover">
-              Expand Your Business Globally
-            </button>
-          </div>
-        </div>
-
-        {/* Legacy Planning Solutions */}
-        <div>
-          <SectionHeader
-            title="Legacy Planning & Family Security"
-            description="Comprehensive solutions for multi-generational wealth and security"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {legacyPlanningSolutions.map((program, index) => (
-              <ProgramCard
-                key={index}
-                program={program}
-                type="Family"
-                showInvestment={false}
-              />
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <button className="px-8 py-3 bg-[#1E453E] text-white hover:bg-[#2D3748] rounded-sm mainTxt font-medium transition-all duration-300 btn-hover">
-              Secure Your Family's Future
+            <button className="px-6 py-2.5 bg-white text-[#1E453E] border border-[#1E453E] hover:bg-gray-50 rounded font-medium transition-colors duration-300">
+              Download Brochure
             </button>
           </div>
         </div>
