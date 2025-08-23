@@ -5,7 +5,7 @@ import portugalFlag from "../assets/Images/countries/portugal.webp";
 import uaeFlag from "../assets/Images/countries/uae.webp";
 import panamaFlag from "../assets/Images/countries/panama.webp";
 import mauritiusFlag from "../assets/Images/countries/mauritius.webp";
-import thailandFlag from "../assets/Images/countries/thailand.webp";
+import thailandFlag from "../assets/Images/countries/Thailand.webp";
 import estoniaFlag from "../assets/Images/countries/estonia.webp";
 import brazilFlag from "../assets/Images/countries/brazil.webp";
 import indonesiaFlag from "../assets/Images/countries/indonesia.webp";
