@@ -23,7 +23,6 @@ import successionPlanningImg from "../assets/Images/countries/successionplanning
 
 const ProgramsSection = () => {
   const [activeTab, setActiveTab] = useState("residence");
-  
 
   const flagImages = {
     USA: usaFlag,
@@ -292,20 +291,20 @@ const ProgramsSection = () => {
       {/* Image at the top of the card */}
       <div className="w-full h-80 overflow-hidden">
         {flagImages[program.flag] ? (
-          <img 
-            src={flagImages[program.flag]} 
+          <img
+            src={flagImages[program.flag]}
             alt={`${program.name} flag`}
             className="w-full h-full object-cover"
           />
         ) : program.image ? (
-          <img 
-            src={program.image} 
+          <img
+            src={program.image}
             alt={program.name}
             className="w-full h-full object-cover"
           />
         ) : null}
       </div>
-      
+
       <div className="p-5 flex flex-col flex-grow">
         <div className="flex-grow">
           <div className="flex items-center justify-between mb-3">
@@ -323,7 +322,9 @@ const ProgramsSection = () => {
 
           {program.benefits && (
             <div className="mb-3">
-              <p className="text-xs font-semibold text-[#1E453E] mb-1">Benefits:</p>
+              <p className="text-xs font-semibold text-[#1E453E] mb-1">
+                Benefits:
+              </p>
               <p className="text-xs text-gray-600">{program.benefits}</p>
             </div>
           )}
@@ -359,11 +360,11 @@ const ProgramsSection = () => {
           Programs
         </span>
       </div>
-      <h2 className="text-2xl md:text-3xl text-[#1E453E] font-bold mb-2">{title}</h2>
+      <h2 className="text-2xl md:text-3xl text-[#1E453E] font-bold mb-2">
+        {title}
+      </h2>
       {description && (
-        <p className="text-gray-600 max-w-2xl mx-auto text-sm">
-          {description}
-        </p>
+        <p className="text-gray-600 max-w-2xl mx-auto text-sm">{description}</p>
       )}
     </div>
   );
@@ -379,7 +380,8 @@ const ProgramsSection = () => {
             Featured Immigration Programs
           </h1>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            Discover our comprehensive range of global immigration and investment programs tailored to your needs.
+            Discover our comprehensive range of global immigration and
+            investment programs tailored to your needs.
           </p>
         </div>
 
@@ -402,7 +404,6 @@ const ProgramsSection = () => {
             ))}
           </div>
         </div>
-
       </div>
     </div>
   );
