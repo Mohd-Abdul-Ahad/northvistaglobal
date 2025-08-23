@@ -14,30 +14,33 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`w-full bg-white border-b border-gray-200 transition-all duration-300 ${isScrolled ? 'sticky-nav py-3' : 'py-4'}`}>
+    <div className={`w-full transition-all duration-300 ${isScrolled ? 'sticky-nav py-3' : 'py-4'} bg-[#1E453E]`}>
       <div className="container mx-auto flex justify-between items-center px-6">
         <div>
-          <span className="text-xl font-bold text-[#1E453E] boldTxt tracking-tight">North Vista Global</span>
+          <span className="text-xl font-bold text-white tracking-tight">North Vista Global</span>
         </div>
 
         <ul className="hidden md:flex gap-8 items-center">
           {['Citizenship', 'Residence', 'Countries', 'Services', 'About'].map((item) => (
             <li key={item} className="group relative">
-              <span className="cursor-pointer text-gray-700 hover:text-[#1E453E] mainTxt text-sm font-medium transition-all duration-300 py-2 relative">
+              <span className="cursor-pointer text-white text-sm font-medium transition-all duration-300 py-2 relative">
                 {item}
-                {/* Animated underline */}
-                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#1E453E] transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
               </span>
             </li>
           ))}
-          <button className="ml-4 px-5 py-2 bg-[#1E453E] text-white hover:bg-[#1f3f39] rounded-sm mainTxt text-sm font-medium transition-all duration-300 btn-hover shadow-md">
-            Contact
-          </button>
+
+          {/* Contact as white text link */}
+          <li>
+            <span className="cursor-pointer text-white text-sm font-medium hover:underline transition-all duration-300">
+              Contact
+            </span>
+          </li>
         </ul>
 
         {/* Mobile menu button */}
         <button 
-          className="md:hidden text-gray-700"
+          className="md:hidden text-white"
           onClick={() => setIsOpen(!isOpen)}
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -52,17 +55,16 @@ const Navbar = () => {
           <ul className="space-y-3">
             {['Citizenship', 'Residence', 'Real Estate', 'Countries', 'Services', 'About'].map((item) => (
               <li key={item} className="group">
-                <span className="cursor-pointer text-gray-700 hover:text-[#1E453E] mainTxt text-base font-medium block py-2 border-b border-gray-100 relative">
+                <span className="cursor-pointer text-[#1E453E] hover:text-[#D4AF37] text-base font-medium block py-2 border-b border-gray-100 relative">
                   {item}
-                  {/* Mobile underline animation */}
                   <span className="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-[#1E453E] transition-all duration-300 group-hover:w-full"></span>
                 </span>
               </li>
             ))}
             <li>
-              <button className="w-full mt-2 px-5 py-2 bg-[#1E453E] text-white hover:bg-[#2D3748] rounded-sm mainTxt font-medium transition-all duration-300">
+              <span className="block text-[#1E453E] font-medium mt-2 hover:underline">
                 Contact
-              </button>
+              </span>
             </li>
           </ul>
         </div>

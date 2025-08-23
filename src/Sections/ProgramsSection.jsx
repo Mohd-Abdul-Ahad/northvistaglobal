@@ -1,25 +1,43 @@
 import React, { useState } from "react";
+import usaFlag from "../assets/Images/countries/usa.webp";
+import canadaFlag from "../assets/Images/countries/canada.webp";
+import portugalFlag from "../assets/Images/countries/portugal.webp";
+import uaeFlag from "../assets/Images/countries/uae.webp";
+import panamaFlag from "../assets/Images/countries/panama.webp";
+import mauritiusFlag from "../assets/Images/countries/mauritius.webp";
+import thailandFlag from "../assets/Images/countries/thailand.webp";
+import estoniaFlag from "../assets/Images/countries/estonia.webp";
+import brazilFlag from "../assets/Images/countries/brazil.webp";
+import indonesiaFlag from "../assets/Images/countries/indonesia.webp";
+import caribbeanFlag from "../assets/Images/countries/caribbean.webp";
+import europeFlag from "../assets/Images/countries/europe.webp";
+
+// Import images for business and legacy sections
+import structuringInvestmentsImg from "../assets/Images/countries/structuringinvestments.webp";
+import executiveRelocationImg from "../assets/Images/countries/businessrelocation.webp";
+import crossBorderExpansionImg from "../assets/Images/countries/crossborderexpansion.webp";
+import educationImg from "../assets/Images/countries/education.webp";
+import healthcareImg from "../assets/Images/countries/healthcare.webp";
+import wealthDiversificationImg from "../assets/Images/countries/wealthdiversification.webp";
+import successionPlanningImg from "../assets/Images/countries/successionplanning.webp";
 
 const ProgramsSection = () => {
   const [activeTab, setActiveTab] = useState("residence");
+  
 
-  // Flag mapping for country codes
-  const flagIcons = {
-    USA: "🇺🇸",
-    CANADA: "🇨🇦",
-    PORTUGAL: "🇵🇹",
-    GREECE: "🇬🇷",
-    MALTA: "🇲🇹",
-    UAE: "🇦🇪",
-    PANAMA: "🇵🇦",
-    MAURITIUS: "🇲🇺",
-    THAILAND: "🇹🇭",
-    ESTONIA: "🇪🇪",
-    BRAZIL: "🇧🇷",
-    COLOMBIA: "🇨🇴",
-    INDONESIA: "🇮🇩",
-    CARIBBEAN: "🌴",
-    EUROPE: "🇪🇺",
+  const flagImages = {
+    USA: usaFlag,
+    CANADA: canadaFlag,
+    PORTUGAL: portugalFlag,
+    UAE: uaeFlag,
+    PANAMA: panamaFlag,
+    MAURITIUS: mauritiusFlag,
+    THAILAND: thailandFlag,
+    ESTONIA: estoniaFlag,
+    BRAZIL: brazilFlag,
+    INDONESIA: indonesiaFlag,
+    CARIBBEAN: caribbeanFlag,
+    EUROPE: europeFlag,
   };
 
   const citizenshipPrograms = [
@@ -193,21 +211,21 @@ const ProgramsSection = () => {
       name: "Structuring investments",
       description:
         "International company formation and corporate structuring services.",
-      icon: "🏢",
+      image: structuringInvestmentsImg,
       benefits: "Tax optimization, liability protection, global expansion",
     },
     {
       name: "Executive Relocation",
       description:
         "Comprehensive relocation services for executives and key personnel.",
-      icon: "✈️",
+      image: executiveRelocationImg,
       benefits: "Visa assistance, housing, cultural integration",
     },
     {
       name: "Cross-Border Expansion",
       description:
         "Market entry strategy and implementation across jurisdictions.",
-      icon: "🌐",
+      image: crossBorderExpansionImg,
       benefits: "Market research, legal compliance, local partnerships",
     },
   ];
@@ -218,311 +236,173 @@ const ProgramsSection = () => {
       description:
         "Global education planning and school placement services for families.",
       benefits: "Top schools, cultural adaptation, visa support",
-      icon: "🎓",
+      image: educationImg,
     },
     {
       name: "Healthcare",
       description:
         "Access to world-class healthcare systems and medical facilities.",
       benefits: "Premium healthcare, medical tourism, insurance",
-      icon: "🏥",
+      image: healthcareImg,
     },
     {
       name: "Wealth Diversification",
       description: "International investment and asset protection strategies.",
       benefits:
         "Currency diversification, risk management, growth opportunities",
-      icon: "📊",
+      image: wealthDiversificationImg,
     },
     {
       name: "Succession Planning",
       description: "Multi-generational wealth transfer and legacy planning.",
       benefits: "Tax efficiency, continuity planning, family governance",
-      icon: "👨‍👩‍👧‍👦",
+      image: successionPlanningImg,
     },
   ];
 
-  // Tab navigation component
+  const sections = [
+    { id: "residence", label: "Residence Programs", data: residencePrograms },
+    { id: "citizenship", label: "Citizenship", data: citizenshipPrograms },
+    { id: "digital", label: "Digital Nomad", data: digitalNomadPrograms },
+    { id: "retirement", label: "Retirement", data: retireeResidencySolutions },
+    { id: "business", label: "Business", data: businessExpansionSolutions },
+    { id: "legacy", label: "Legacy Planning", data: legacyPlanningSolutions },
+  ];
+
   const TabNavigation = () => (
-    <div className="flex flex-wrap justify-center gap-2 mb-10">
-      <button
-        className={`px-5 py-2 rounded-full font-medium transition-all ${
-          activeTab === "residence"
-            ? "bg-[#1E453E] text-white"
-            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-        }`}
-        onClick={() => setActiveTab("residence")}
-      >
-        Residence Programs
-      </button>
-      <button
-        className={`px-5 py-2 rounded-full font-medium transition-all ${
-          activeTab === "citizenship"
-            ? "bg-[#1E453E] text-white"
-            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-        }`}
-        onClick={() => setActiveTab("citizenship")}
-      >
-        Citizenship
-      </button>
-      <button
-        className={`px-5 py-2 rounded-full font-medium transition-all ${
-          activeTab === "digital"
-            ? "bg-[#1E453E] text-white"
-            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-        }`}
-        onClick={() => setActiveTab("digital")}
-      >
-        Digital Nomad
-      </button>
-      <button
-        className={`px-5 py-2 rounded-full font-medium transition-all ${
-          activeTab === "retirement"
-            ? "bg-[#1E453E] text-white"
-            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-        }`}
-        onClick={() => setActiveTab("retirement")}
-      >
-        Retirement
-      </button>
-      <button
-        className={`px-5 py-2 rounded-full font-medium transition-all ${
-          activeTab === "business"
-            ? "bg-[#1E453E] text-white"
-            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-        }`}
-        onClick={() => setActiveTab("business")}
-      >
-        Business
-      </button>
-      <button
-        className={`px-5 py-2 rounded-full font-medium transition-all ${
-          activeTab === "legacy"
-            ? "bg-[#1E453E] text-white"
-            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-        }`}
-        onClick={() => setActiveTab("legacy")}
-      >
-        Legacy Planning
-      </button>
-    </div>
-  );
-
-  // Program Card Component
-  const ProgramCard = ({ program, type }) => (
-    <div className="bg-white p-5 rounded-lg border border-gray-200 h-full flex flex-col transition-all duration-300 hover:shadow-md">
-      <div className="flex-grow">
-        <div className="flex items-center justify-between mb-3">
-          <div className="text-2xl">
-            {flagIcons[program.flag] || program.icon}
-          </div>
-          <div className="bg-[#F0F7F4] text-[#1E453E] text-xs font-medium px-2 py-1 rounded">
-            {type}
-          </div>
-        </div>
-
-        <h3 className="font-bold text-lg text-[#2D3748] mb-2">
-          {program.name}
-        </h3>
-
-        <p className="text-[#4B5563] text-sm mb-3 leading-relaxed">
-          {program.description}
-        </p>
-
-        {program.benefits && (
-          <div className="mb-3">
-            <p className="text-[#1E453E] text-xs font-medium mb-1">Benefits:</p>
-            <p className="text-[#4B5563] text-xs">{program.benefits}</p>
-          </div>
-        )}
-      </div>
-
-      <div className="border-t border-gray-100 pt-3 mt-auto">
-        <div className="flex justify-between items-center mb-3">
-          {program.investment && (
-            <div>
-              <p className="text-xs text-[#6B7280] uppercase tracking-wide mb-1">
-                Investment
-              </p>
-              <p className="font-semibold text-[#1E453E]">
-                {program.investment}
-              </p>
-            </div>
-          )}
-
-          {program.processing && (
-            <div className="text-right">
-              <p className="text-xs text-[#6B7280] uppercase tracking-wide mb-1">
-                Processing
-              </p>
-              <p className="text-[#4B5563] text-sm">{program.processing}</p>
-            </div>
-          )}
-        </div>
-
-        <button className="w-full px-4 py-2.5 bg-[#1E453E] text-white hover:bg-[#2D3748] rounded text-sm font-medium transition-colors duration-300">
-          Learn More
+    <div className="flex flex-wrap justify-center gap-3 mb-10 animate-fade-in">
+      {sections.map(({ id, label }) => (
+        <button
+          key={id}
+          onClick={() => setActiveTab(id)}
+          className={`px-5 py-2 rounded-full font-semibold transition-all ${
+            activeTab === id
+              ? "bg-[#1E453E] text-white"
+              : "bg-white text-[#1E453E] border border-[#1E453E] hover:bg-[#1E453E] hover:text-white"
+          }`}
+        >
+          {label}
         </button>
+      ))}
+    </div>
+  );
+
+  const ProgramCard = ({ program, type }) => (
+    <div className="bg-white rounded-lg border border-[#1E453E]/20 h-full flex flex-col transition-all duration-300 hover:shadow-lg overflow-hidden">
+      {/* Image at the top of the card */}
+      <div className="w-full h-80 overflow-hidden">
+        {flagImages[program.flag] ? (
+          <img 
+            src={flagImages[program.flag]} 
+            alt={`${program.name} flag`}
+            className="w-full h-full object-cover"
+          />
+        ) : program.image ? (
+          <img 
+            src={program.image} 
+            alt={program.name}
+            className="w-full h-full object-cover"
+          />
+        ) : null}
+      </div>
+      
+      <div className="p-5 flex flex-col flex-grow">
+        <div className="flex-grow">
+          <div className="flex items-center justify-between mb-3">
+            <div className="bg-[#1E453E] text-white text-xs font-medium px-2 py-1 rounded">
+              {type}
+            </div>
+          </div>
+
+          <h3 className="text-lg text-[#1E453E] font-bold mb-2">
+            {program.name}
+          </h3>
+          <p className="text-sm text-gray-600 leading-relaxed mb-3">
+            {program.description}
+          </p>
+
+          {program.benefits && (
+            <div className="mb-3">
+              <p className="text-xs font-semibold text-[#1E453E] mb-1">Benefits:</p>
+              <p className="text-xs text-gray-600">{program.benefits}</p>
+            </div>
+          )}
+        </div>
+
+        <div className="border-t border-[#1E453E]/20 pt-3 mt-auto">
+          <div className="flex justify-between items-center mb-3 text-xs text-gray-600">
+            {program.investment && (
+              <div>
+                <p className="uppercase mb-1 font-semibold">Investment</p>
+                <p className="font-bold text-[#1E453E]">{program.investment}</p>
+              </div>
+            )}
+            {program.processing && (
+              <div className="text-right">
+                <p className="uppercase mb-1 font-semibold">Processing</p>
+                <p>{program.processing}</p>
+              </div>
+            )}
+          </div>
+          <button className="w-full px-4 py-2.5 bg-[#1E453E] text-white hover:bg-[#2a5c52] rounded text-sm font-medium transition-colors">
+            Learn More
+          </button>
+        </div>
       </div>
     </div>
   );
 
-  // Section Header Component
   const SectionHeader = ({ title, description }) => (
-    <div className="text-center mb-8">
-      <div className="inline-flex items-center justify-center gap-2 mb-2 px-4 py-1 bg-[#FEF2E8] rounded-full">
-        <span className="text-[#C44D34] text-xs font-medium uppercase tracking-wide">
+    <div className="text-center mb-8 animate-fade-in">
+      <div className="inline-flex items-center justify-center gap-2 mb-2 px-4 py-1 bg-[#1E453E] rounded-full">
+        <span className="text-white text-xs font-medium uppercase tracking-wide">
           Programs
         </span>
       </div>
-      <h2 className="font-bold text-2xl text-[#2D3748] mb-2">{title}</h2>
+      <h2 className="text-2xl md:text-3xl text-[#1E453E] font-bold mb-2">{title}</h2>
       {description && (
-        <p className="text-[#4B5563] max-w-2xl mx-auto text-sm">
+        <p className="text-gray-600 max-w-2xl mx-auto text-sm">
           {description}
         </p>
       )}
     </div>
   );
 
+  const activeData = sections.find((s) => s.id === activeTab);
+
   return (
-    <div className="w-full py-10 bg-white">
-      <div className="container mx-auto px-4">
-        {/* Header Section */}
-        <div className="text-center mb-10">
-          <h1 className="font-bold text-2xl md:text-3xl text-[#2D3748] mb-3">
+    <div className="w-full py-16 bg-gray-50">
+      <div className="container mx-auto px-6">
+        {/* Page Header */}
+        <div className="text-center mb-10 animate-fade-in">
+          <h1 className="text-3xl md:text-4xl text-[#1E453E] font-bold mb-3">
             Featured Immigration Programs
           </h1>
+          <p className="text-gray-600 max-w-3xl mx-auto">
+            Discover our comprehensive range of global immigration and investment programs tailored to your needs.
+          </p>
         </div>
 
-        {/* Tab Navigation */}
+        {/* Tabs */}
         <TabNavigation />
 
-        {/* Tab Content */}
+        {/* Content */}
         <div className="mb-12">
-          {activeTab === "residence" && (
-            <>
-              <SectionHeader
-                title="Residence by Investment Programs"
-                description="Secure residency through investment in countries worldwide"
+          <SectionHeader
+            title={activeData.label}
+            description={`Explore opportunities for ${activeData.label.toLowerCase()} around the world.`}
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {activeData.data.map((program, idx) => (
+              <ProgramCard
+                key={idx}
+                program={program}
+                type={activeData.label}
               />
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {residencePrograms.map((program, index) => (
-                  <ProgramCard key={index} program={program} type="Residency" />
-                ))}
-              </div>
-            </>
-          )}
-
-          {activeTab === "citizenship" && (
-            <>
-              <SectionHeader
-                title="Citizenship by Investment Programs"
-                description="Obtain second citizenship through investment"
-              />
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {citizenshipPrograms.map((program, index) => (
-                  <ProgramCard
-                    key={index}
-                    program={program}
-                    type="Citizenship"
-                  />
-                ))}
-              </div>
-            </>
-          )}
-
-          {activeTab === "digital" && (
-            <>
-              <SectionHeader
-                title="Digital Nomad Programs"
-                description="Legal residency options for remote workers"
-              />
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {digitalNomadPrograms.map((program, index) => (
-                  <ProgramCard
-                    key={index}
-                    program={program}
-                    type="Digital Nomad"
-                  />
-                ))}
-              </div>
-            </>
-          )}
-
-          {activeTab === "retirement" && (
-            <>
-              <SectionHeader
-                title="Retiree Residency Solutions"
-                description
-                Premium
-                retirement
-                lifestyle
-                destinations
-                worldwide
-              />
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {retireeResidencySolutions.map((program, index) => (
-                  <ProgramCard
-                    key={index}
-                    program={program}
-                    type="Retirement"
-                  />
-                ))}
-              </div>
-            </>
-          )}
-
-          {activeTab === "business" && (
-            <>
-              <SectionHeader
-                title="Business Expansion Solutions"
-                description="Strategic solutions for international business growth"
-              />
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {businessExpansionSolutions.map((program, index) => (
-                  <ProgramCard key={index} program={program} type="Business" />
-                ))}
-              </div>
-            </>
-          )}
-
-          {activeTab === "legacy" && (
-            <>
-              <SectionHeader
-                title="Legacy Planning Solutions"
-                description="Comprehensive solutions for multi-generational wealth and security"
-              />
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {legacyPlanningSolutions.map((program, index) => (
-                  <ProgramCard
-                    key={index}
-                    program={program}
-                    type="Legacy Planning"
-                  />
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-
-        {/* Consultation CTA Section */}
-        <div className="bg-[#F0F7F4] rounded-lg p-6 md:p-8 text-center">
-          <h2 className="font-bold text-xl md:text-2xl text-[#2D3748] mb-3">
-            Need Personalized Guidance?
-          </h2>
-          <p className="text-[#4B5563] max-w-2xl mx-auto mb-5">
-            Our immigration experts are ready to help you find the perfect
-            program for your needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button className="px-6 py-2.5 bg-[#1E453E] text-white hover:bg-[#2D3748] rounded font-medium transition-colors duration-300">
-              Schedule a Free Consultation
-            </button>
-            <button className="px-6 py-2.5 bg-white text-[#1E453E] border border-[#1E453E] hover:bg-gray-50 rounded font-medium transition-colors duration-300">
-              Download Brochure
-            </button>
+            ))}
           </div>
         </div>
+
       </div>
     </div>
   );

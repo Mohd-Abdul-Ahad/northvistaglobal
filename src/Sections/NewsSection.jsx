@@ -33,7 +33,7 @@ const NewsSection = () => {
             </span>
             <div className="w-12 h-0.5 bg-[#C44D34]"></div>
           </div>
-          <h2 className="boldTxt text-3xl md:text-4xl text-[#2D3748] mb-4">
+          <h2 className="interbold text-3xl md:text-4xl text-[#1e453e] mb-4">
             Insights & Resources
           </h2>
           <p className="mainTxt text-[#6B7280]">

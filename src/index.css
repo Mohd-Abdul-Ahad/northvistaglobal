@@ -1,53 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nata+Sans:wght@100..900&family=Roboto:ital@0;1&display=swap");
 @import "tailwindcss";
 
 :root {
-  --primary: #1E453E;
-  --primary-dark: #0f2420;
-  --primary-light: #2d5a52;
-  --accent: #C44D34;
-  --background: #F8F9FA;
-  --text-dark: #2D3748;
-  --text-light: #6B7280;
-  --border: #E5E7EB;
+  --primary: #1e453e;
+  --white: #ffffff;
+  --secondarybg: #f2f2f2;
 }
 
 body {
   font-family: "Inter", sans-serif;
-  color: var(--text-dark);
-  background-color: #ffffff;
-  line-height: 1.6;
+  background-color: var(--white);
+  color: var(--white);
 }
 
-.mainTxt {
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
+/* Use this class for text that should be in #1E453E */
+.text-primary {
+  color: var(--primary);
 }
 
-.boldTxt {
+.serif {
   font-family: "Playfair Display", serif;
+}
+.sans {
+  font-family: "Inter", sans-serif;
+}
+
+.intersemibold {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.interbold {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 600;
+  font-style: normal;
 }
 
-.secTxt {
-  color: var(--text-light);
+.bold {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
 }
 
-/* Enhanced animations for professional look */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* New fade-in-left animation */
+.animate-fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: fadeInLeft 1s ease-out forwards;
 }
 
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
 }
 
 @keyframes fadeInLeft {
@@ -62,135 +81,128 @@ body {
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeIn 0.7s ease-out forwards;
+}
+.animate-slide-up {
+  animation: slideUp 0.7s ease-out forwards;
 }
 
-.animate-slide-in-up {
-  animation: slideInUp 0.8s ease-out forwards;
-}
-
-.animate-fade-in-left {
-  animation: fadeInLeft 0.8s ease-out forwards;
-}
-
-/* Professional transitions */
-button, a, .transition-all {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Enhanced hover effects */
-.btn-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(30, 69, 62, 0.15);
-}
-
-/* Group hover effects for cards */
-.group:hover {
-  transform: translateY(-5px);
-}
-
-/* Professional focus states */
-button:focus, 
-input:focus, 
-textarea:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(30, 69, 62, 0.1);
-}
-
-/* Sticky navbar styles */
-.sticky-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background: white;
-  box-shadow: 0 2px 10px rgba(30, 69, 62, 0.1);
-  animation: slideDown 0.3s ease-out;
-}
-
-@keyframes slideDown {
+@keyframes fadeIn {
   from {
-    transform: translateY(-100%);
+    opacity: 0;
   }
   to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Professional scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* Button hover elevation */
+button:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+/* Add these to your existing CSS */
+.animate-swipe-in {
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: swipeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 4px;
+@keyframes swipeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark);
+/* Add these to your existing CSS */
+
+/* Fade in from right animation */
+.animate-fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  animation: fadeInRight 0.8s ease-out forwards;
 }
 
-/* Enhanced underline animation for navbar */
-.nav-item {
-  position: relative;
-  overflow: hidden;
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.nav-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--primary);
-  transition: width 0.3s ease, transform 0.3s ease;
-  transform-origin: left;
+/* Swipe from left animation */
+.animate-swipe-left {
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: swipeLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-.nav-item:hover::after {
-  width: 100%;
-  transform: scaleX(1);
+@keyframes swipeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-/* Mobile nav items */
-.mobile-nav-item {
-  position: relative;
-  overflow: hidden;
+/* Swipe from right animation */
+.animate-swipe-right {
+  opacity: 0;
+  transform: translateX(100%);
+  animation: swipeRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-.mobile-nav-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--primary);
-  transition: width 0.3s ease;
+@keyframes swipeRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.mobile-nav-item:hover::after {
-  width: 100%;
+/* Delay utilities */
+.delay-100 {
+  animation-delay: 0.1s;
 }
 
-/* Professional card shadows */
-.card-shadow {
-  box-shadow: 0 4px 6px -1px rgba(30, 69, 62, 0.1), 0 2px 4px -1px rgba(30, 69, 62, 0.06);
+.delay-200 {
+  animation-delay: 0.2s;
 }
 
-.card-shadow:hover {
-  box-shadow: 0 10px 15px -3px rgba(30, 69, 62, 0.1), 0 4px 6px -2px rgba(30, 69, 62, 0.05);
+.delay-300 {
+  animation-delay: 0.3s;
 }
 
-/* Responsive text sizing */
-@media (max-width: 640px) {
-  h1 { font-size: 1.875rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.25rem; }
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
 }
