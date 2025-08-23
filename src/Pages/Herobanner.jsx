@@ -26,7 +26,7 @@ const Herobanner = () => {
             isTopbarVisible ? "opacity-100" : "opacity-0 h-0 overflow-hidden"
           }`}
         >
-          <Topbar />
+
         </div>
         <Navbar />
       </div>
