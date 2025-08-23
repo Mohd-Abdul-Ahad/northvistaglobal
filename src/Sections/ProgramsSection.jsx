@@ -7,7 +7,7 @@ import panamaFlag from "../assets/Images/countries/panama.webp";
 import mauritiusFlag from "../assets/Images/countries/mauritius.webp";
 import thailandFlag from "../assets/Images/countries/Thailand.webp";
 import estoniaFlag from "../assets/Images/countries/estonia.webp";
-import brazilFlag from "../assets/Images/countries/brazil.webp";
+import brazilFlag from "../assets/Images/countries/Brazil.webp";
 import indonesiaFlag from "../assets/Images/countries/indonesia.webp";
 import caribbeanFlag from "../assets/Images/countries/caribbean.webp";
 import europeFlag from "../assets/Images/countries/europe.webp";
@@ -410,3 +410,4 @@ const ProgramsSection = () => {
 };
 
 export default ProgramsSection;
+// fixed brazil img
