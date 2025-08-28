@@ -1,26 +1,45 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nata+Sans:wght@100..900&family=Roboto:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @import "tailwindcss";
 
 :root {
   --primary: #1e453e;
   --white: #ffffff;
   --secondarybg: #f2f2f2;
+  --terracotta: #e2725b;
+  --sage: #87a96b;
+  --olive: #556b2f;
 }
 
 body {
   font-family: "Inter", sans-serif;
   background-color: var(--white);
   color: var(--white);
+  margin: 0;
+  padding: 0;
 }
 
-/* Use this class for text that should be in #1E453E */
+/* Text color utilities */
 .text-primary {
   color: var(--primary);
 }
 
+.text-terracotta {
+  color: var(--terracotta);
+}
+
+.text-sage {
+  color: var(--sage);
+}
+
+.text-olive {
+  color: var(--olive);
+}
+
+/* Font family utilities */
 .serif {
   font-family: "Playfair Display", serif;
 }
+
 .sans {
   font-family: "Inter", sans-serif;
 }
@@ -28,45 +47,32 @@ body {
 .intersemibold {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 700;
+  font-weight: 600;
   font-style: normal;
 }
 
 .interbold {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 600;
+  font-weight: 700;
   font-style: normal;
 }
 
 .bold {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 900;
+  font-weight: 800;
   font-style: normal;
 }
 
-/* New fade-in-left animation */
-.animate-fade-in-left {
-  opacity: 0;
-  transform: translateX(-30px);
-  animation: fadeInLeft 1s ease-out forwards;
-}
-
-.delay-100 {
-  animation-delay: 0.1s;
-}
-
-.delay-300 {
-  animation-delay: 0.3s;
-}
-
-.delay-500 {
-  animation-delay: 0.5s;
-}
-
-.delay-700 {
-  animation-delay: 0.7s;
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeInLeft {
@@ -80,19 +86,14 @@ body {
   }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.7s ease-out forwards;
-}
-.animate-slide-up {
-  animation: slideUp 0.7s ease-out forwards;
-}
-
-@keyframes fadeIn {
+@keyframes fadeInRight {
   from {
     opacity: 0;
+    transform: translateX(30px);
   }
   to {
     opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -107,54 +108,15 @@ body {
   }
 }
 
-/* Button hover elevation */
-button:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-}
-
-/* Add these to your existing CSS */
-.animate-swipe-in {
-  opacity: 0;
-  transform: translateX(-100%);
-  animation: swipeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
 @keyframes swipeIn {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Add these to your existing CSS */
-
-/* Fade in from right animation */
-.animate-fade-in-right {
-  opacity: 0;
-  transform: translateX(30px);
-  animation: fadeInRight 0.8s ease-out forwards;
-}
-
-@keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(-100%);
   }
   to {
     opacity: 1;
     transform: translateX(0);
   }
-}
-
-/* Swipe from left animation */
-.animate-swipe-left {
-  opacity: 0;
-  transform: translateX(-100%);
-  animation: swipeLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 @keyframes swipeLeft {
@@ -168,13 +130,6 @@ button:hover {
   }
 }
 
-/* Swipe from right animation */
-.animate-swipe-right {
-  opacity: 0;
-  transform: translateX(100%);
-  animation: swipeRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
 @keyframes swipeRight {
   from {
     opacity: 0;
@@ -184,6 +139,50 @@ button:hover {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+@keyframes swipeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.7s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 1s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.7s ease-out forwards;
+}
+
+.animate-swipe-in {
+  animation: swipeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-swipe-left {
+  animation: swipeLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-swipe-right {
+  animation: swipeRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-swipe-up {
+  animation: swipeUp 0.8s ease-out forwards;
 }
 
 /* Delay utilities */
@@ -205,4 +204,83 @@ button:hover {
 
 .delay-500 {
   animation-delay: 0.5s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+/* Button hover effects */
+button:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* Ensure elements are hidden before animation */
+.opacity-0 {
+  opacity: 0;
+}
+
+/* Custom scroll behavior for smooth animations */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom styles for the AboutUs component */
+.bg-custom-primary {
+  background-color: var(--primary);
+}
+
+.bg-custom-beige {
+  background-color: #F5F5DC;
+}
+
+.border-custom-sage {
+  border-color: var(--sage);
+}
+
+/* Responsive text sizes */
+@media (max-width: 768px) {
+  .responsive-heading {
+    font-size: 2.5rem;
+  }
+  
+  .responsive-subheading {
+    font-size: 1.5rem;
+  }
+}
+
+/* Loading state for images */
+img {
+  transition: opacity 0.3s ease;
+}
+
+img[src=""], img:not([src]) {
+  opacity: 0;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+a:focus {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sage);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--olive);
 }

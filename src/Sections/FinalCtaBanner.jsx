@@ -13,7 +13,7 @@ const FinalCTABanner = () => {
           or a retirement lifestyle abroad — North Vista Global is your trusted partner.
         </p>
         
-        <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 bg-red">
           <button className="bg-[#C44D34] hover:bg-[#b3452e] text-white font-medium py-3 px-8 rounded-md transition-all duration-300 btn-hover">
             Book a Free Consultation
           </button>

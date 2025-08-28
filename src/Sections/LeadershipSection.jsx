@@ -1,154 +1,122 @@
-import React from 'react';
+import React, { useState } from "react";
 
 const LeadershipSection = () => {
+  const [selectedMember, setSelectedMember] = useState(null);
+
+  const teamMembers = [
+    {
+      id: 1,
+      name: "Nabeel Khan",
+      role: "Founder, North Vista Immigration",
+      image: "/api/placeholder/200/200",
+      fullBio:
+        "With extensive experience in immigration consulting, Nabeel Khan founded North Vista Immigration with a vision to simplify global mobility. Nabeel has over 15 years of experience in immigration consulting and has helped thousands of clients achieve their dreams. He specializes in investor immigration programs and has built strong relationships with immigration authorities worldwide.",
+    },
+    {
+      id: 2,
+      name: "Sampann Malhotra",
+      role: "Director, SMGC | Business Development Consultant at NVI",
+      image: "/api/placeholder/200/200",
+      fullBio:
+        "Sampann Malhotra brings strategic vision and business development expertise to the partnership, driving growth initiatives. With a background in international business development, Sampann Malhotra has successfully expanded operations across multiple continents. His strategic insights have been instrumental in developing innovative immigration solutions for high-net-worth individuals.",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white py-16 px-4 md:px-8 lg:px-16">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-16 flex items-center justify-center flex-col">
           <h1 className="font-playfair text-4xl md:text-5xl font-semibold mb-6 text-[#1E453E]">
-            Leadership
+            Leadership Team
           </h1>
-          <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
-            Meet the visionaries guiding North Vista Global towards empowering global mobility
+          <p className="text-xl text-gray-600 max-w-3xl">
+            Meet the visionaries guiding North Vista Global
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-          {/* Leadership Cards */}
-          <div className="space-y-12">
-            {/* Nabeel Khan */}
-            <div className="animate-fade-in-left">
-              <div className="bg-white rounded-xl shadow-sm border border-[#E5E7EB] p-8 h-full transition-all duration-300 hover:shadow-md">
-                <div className="flex flex-col md:flex-row items-start gap-6">
-                  <div className="w-24 h-24 bg-[#1E453E] rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                    </svg>
+        {/* Team Member Cards Container */}
+        <div className="flex flex-nowrap gap-6 overflow-visible">
+          {teamMembers.map((member, index) => {
+            const isSelected = selectedMember === member.id;
+            const selectedIndex = selectedMember
+              ? teamMembers.findIndex((m) => m.id === selectedMember)
+              : -1;
+
+            return (
+              <div
+                key={member.id}
+                className="relative transition-all duration-500 ease-out"
+                style={{
+                  transform:
+                    selectedMember && !isSelected && index > selectedIndex
+                      ? "translateX(10px)"
+                      : "translateX(0)",
+                  zIndex: isSelected ? 20 : 10 - index,
+                }}
+                onMouseEnter={() => setSelectedMember(member.id)}
+                onMouseLeave={() => setSelectedMember(null)}
+              >
+                {/* Main Card and Expanded Panel Container */}
+                <div className="flex">
+                  {/* Team Member Card */}
+                  <div className="w-[380px] h-[450px] border border-gray-200 rounded-l-xl overflow-hidden shadow-md bg-white transition-all duration-300 hover:shadow-lg">
+                    <div className="h-3/5 w-full overflow-hidden">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-2xl font-semibold text-[#1E453E] font-playfair mb-2">
+                        {member.name}
+                      </h3>
+                      <p className="text-md font-medium text-[#4B5563]">
+                        {member.role}
+                      </p>
+                      <div
+                        className={`mt-4 transition-all duration-300 ${
+                          isSelected ? "opacity-0 h-0" : "opacity-100 h-auto"
+                        }`}
+                      >
+                        <p className="text-sm text-gray-600">
+                          Hover to learn more about {member.name.split(" ")[0]}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-playfair text-2xl font-semibold mb-2 text-[#1E453E]">Nabeel Khan</h3>
-                    <p className="text-[#C44D34] font-medium mb-4">Founder, North Vista Immigration</p>
-                    <p className="text-[#6B7280]">
-                      With extensive experience in immigration consulting, Nabeel Khan founded North Vista Immigration 
-                      with a vision to simplify global mobility for individuals and families seeking new opportunities abroad.
-                    </p>
+
+                  {/* Expanded Description Card */}
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ease-out ${
+                      isSelected ? "w-[380px] opacity-100" : "w-0 opacity-0"
+                    }`}
+                  >
+                    <div className="w-[380px] h-[450px] border border-gray-200 border-l-0 rounded-r-xl bg-white shadow-md p-6 flex flex-col">
+                      <h3 className="text-2xl font-semibold text-[#1E453E] font-playfair mb-2">
+                        About {member.name}
+                      </h3>
+                      <p className="text-md font-medium text-[#4B5563] mb-4">
+                        {member.role}
+                      </p>
+                      <div className="flex-grow overflow-y-auto pr-2">
+                        <p className="text-[#6B7280] text-base leading-relaxed mb-4">
+                          {member.fullBio}
+                        </p>
+                      </div>
+                      <div className="bg-[#F0F7EE] p-4 rounded-lg border-l-4 border-[#1E453E] mt-4">
+                        <p className="text-[#1E453E] italic text-sm">
+                          "Our mission is to make global mobility accessible and
+                          seamless."
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Sampann Malhotra */}
-            <div className="animate-fade-in-left" style={{animationDelay: '0.1s'}}>
-              <div className="bg-white rounded-xl shadow-sm border border-[#E5E7EB] p-8 h-full transition-all duration-300 hover:shadow-md">
-                <div className="flex flex-col md:flex-row items-start gap-6">
-                  <div className="w-24 h-24 bg-[#C44D34] rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-playfair text-2xl font-semibold mb-2 text-[#1E453E]">Sampann Malhotra</h3>
-                    <p className="text-[#C44D34] font-medium mb-4">Director, SMGC | Business Development Consultant at NVI</p>
-                    <p className="text-[#6B7280]">
-                      Sampann Malhotra brings strategic vision and business development expertise to the partnership, 
-                      driving growth initiatives and fostering international relationships that benefit our clients.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Values Section */}
-          <div className="animate-fade-in">
-            <div className="bg-[#1E453E] text-white rounded-xl p-8 h-full">
-              <h2 className="font-playfair text-3xl font-semibold mb-8 text-center">Our Values</h2>
-              
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-[#C44D34] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Excellence</h3>
-                    <p className="opacity-90">We strive for the highest standards in all our services and client interactions.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-[#C44D34] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Integrity</h3>
-                    <p className="opacity-90">We maintain honesty and strong moral principles in all our business dealings.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-[#C44D34] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Confidentiality</h3>
-                    <p className="opacity-90">We protect our clients' privacy and handle all information with utmost discretion.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-[#C44D34] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Innovation</h3>
-                    <p className="opacity-90">We continuously evolve our approaches to provide cutting-edge solutions.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-[#C44D34] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Legacy</h3>
-                    <p className="opacity-90">We help clients build lasting foundations for future generations.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Divider */}
-        <div className="border-t border-[#E5E7EB] my-16"></div>
-
-        {/* CTA Section */}
-        <div className="text-center animate-fade-in">
-          <h2 className="font-playfair text-3xl md:text-4xl font-semibold mb-6 text-[#1E453E]">
-            Your Global Journey Starts Here
-          </h2>
-          <p className="text-xl text-[#6B7280] max-w-3xl mx-auto mb-10">
-            Begin your path to global residency and citizenship with our expert guidance
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
-            <button className="bg-[#C44D34] hover:bg-[#b3452e] text-white font-medium py-3 px-8 rounded-md transition-all duration-300 btn-hover">
-              Book a Free Consultation
-            </button>
-            <button className="bg-transparent border-2 border-[#1E453E] hover:bg-[#1E453E] hover:text-white text-[#1E453E] font-medium py-3 px-8 rounded-md transition-all duration-300 btn-hover">
-              Explore Our Programs
-            </button>
-          </div>
+            );
+          })}
         </div>
       </div>
     </div>
