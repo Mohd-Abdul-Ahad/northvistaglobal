@@ -1,50 +1,30 @@
 import React from "react";
+import globalIcon from "../assets/icons/global.svg";
+import trustedIcon from "../assets/icons/trustedexpertise.svg";
+import briefcaseIcon from "../assets/icons/briefcase.svg";
+import handshakeIcon from "../assets/icons/handshake.svg";
 
 const WhyChooseUs = () => {
   const features = [
     {
-      icon: (
-        <img
-          src="/src/assets/icons/global.svg"
-          alt="Global Icon"
-          className="w-16 h-16"
-        />
-      ),
+      icon: globalIcon,
       title: "Global Coverage",
       description: "From the USA to the Caribbean, Europe, and Asia.",
     },
     {
-      icon: (
-        <img
-          src="/src/assets/icons/trustedexpertise.svg"
-          alt="Expertise Icon"
-          className="w-16 h-16"
-        />
-      ),
+      icon: trustedIcon,
       title: "Trusted Expertise",
       description:
         "Powered by North Vista Immigration & SMGC's global consulting network.",
     },
     {
-      icon: (
-        <img
-          src="/src/assets/icons/briefcase.svg"
-          alt="Briefcase Icon"
-          className="w-16 h-16"
-        />
-      ),
+      icon: briefcaseIcon,
       title: "Tailored for HNWIs",
       description:
         "Customized pathways for investors, entrepreneurs & retirees.",
     },
     {
-      icon: (
-        <img
-          src="/src/assets/icons/handshake.svg"
-          alt="Handshake Icon"
-          className="w-16 h-16"
-        />
-      ),
+      icon: handshakeIcon,
       title: "Seamless Service",
       description: "AI-driven CRM and client support.",
     },
@@ -68,7 +48,7 @@ const WhyChooseUs = () => {
               With decades of combined experience and a global network of
               partners, we provide unparalleled investment migration solutions.
             </p>
-            
+
             {/* CTA */}
             <div className="text-left">
               <button className="px-10 py-4 bg-[#1E453E] text-white text-lg rounded-md font-medium hover:bg-[#2D3748] transition-all duration-300 transform hover:-translate-y-1">
@@ -89,7 +69,11 @@ const WhyChooseUs = () => {
                   className="p-8 bg-[#F8F9FA] rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300 hover:border-[#1E453E]/20 group"
                 >
                   <div className="flex items-center justify-center mb-5 bg-[#F0F7EE] p-3 rounded-lg w-20 h-20 mx-auto group-hover:bg-[#E4F2E1] transition-colors duration-300">
-                    {feature.icon}
+                    <img
+                      src={feature.icon}
+                      alt={feature.title}
+                      className="w-16 h-16"
+                    />
                   </div>
                   <h3 className="text-xl font-semibold text-[#1E453E] mb-3 text-center">
                     {feature.title}

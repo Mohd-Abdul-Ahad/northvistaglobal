@@ -58,6 +58,13 @@ body {
   font-style: normal;
 }
 
+.inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
 .bold {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
@@ -233,7 +240,7 @@ html {
 }
 
 .bg-custom-beige {
-  background-color: #F5F5DC;
+  background-color: #f5f5dc;
 }
 
 .border-custom-sage {
@@ -245,7 +252,7 @@ html {
   .responsive-heading {
     font-size: 2.5rem;
   }
-  
+
   .responsive-subheading {
     font-size: 1.5rem;
   }
@@ -256,7 +263,8 @@ img {
   transition: opacity 0.3s ease;
 }
 
-img[src=""], img:not([src]) {
+img[src=""],
+img:not([src]) {
   opacity: 0;
 }
 

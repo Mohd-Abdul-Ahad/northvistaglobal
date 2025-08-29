@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import usaFlag from "../assets/Images/countries/usa.webp";
 import canadaFlag from "../assets/Images/countries/canada.webp";
 import portugalFlag from "../assets/Images/countries/portugal.webp";
@@ -286,19 +286,21 @@ const ProgramsSection = () => {
     </div>
   );
 
-  const ProgramCard = ({ program, type }) => (
+  const ProgramCard = React.memo(({ program, type }) => (
     <div className="bg-white rounded-lg border border-[#1E453E]/20 h-full flex flex-col transition-all duration-300 hover:shadow-lg overflow-hidden">
       {/* Image at the top of the card */}
       <div className="w-full h-80 overflow-hidden">
         {flagImages[program.flag] ? (
           <img
             src={flagImages[program.flag]}
+            loading="lazy"
             alt={`${program.name} flag`}
             className="w-full h-full object-cover"
           />
         ) : program.image ? (
           <img
             src={program.image}
+            loading="lazy"
             alt={program.name}
             className="w-full h-full object-cover"
           />
@@ -351,10 +353,10 @@ const ProgramsSection = () => {
         </div>
       </div>
     </div>
-  );
+  ));
 
   const SectionHeader = ({ title, description }) => (
-    <div className="text-center mb-8 animate-fade-in">
+    <div className="text-center mb-8 IntersectionObserver">
       <div className="inline-flex items-center justify-center gap-2 mb-2 px-4 py-1 bg-[#1E453E] rounded-full">
         <span className="text-white text-xs font-medium uppercase tracking-wide">
           Programs
@@ -368,8 +370,9 @@ const ProgramsSection = () => {
       )}
     </div>
   );
-
-  const activeData = sections.find((s) => s.id === activeTab);
+  const activeData = useMemo(() => {
+    return sections.find((s) => s.id === activeTab);
+  }, [activeTab]);
 
   return (
     <div className="w-full py-16 bg-gray-50">
@@ -410,4 +413,3 @@ const ProgramsSection = () => {
 };
 
 export default ProgramsSection;
-// fixed indo img
