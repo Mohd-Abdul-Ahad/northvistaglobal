@@ -1,9 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import passportImage from "../assets/Images/passport.jpg";
+import globeIcon from "../assets/icons/global.svg";
+import personIcon from "../assets/icons/user.svg";
+import documentIcon from "../assets/icons/briefcase.svg";
+import bulbIcon from "../assets/icons/strategicexpertise.svg";
 
 const InfoHighlight = ({ icon, title, text }) => (
   <div className="p-6 rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
-    <div className="mb-4 text-3xl text-[#E2725B]">{icon}</div>
+    <div className="mb-4">
+      <img src={icon} alt={title} className="w-12 h-12" />
+    </div>
     <h4 className="text-xl font-semibold mb-2 text-[#1E453E]">{title}</h4>
     <p className="text-sm text-gray-700 mt-auto">{text}</p>
   </div>
@@ -16,7 +22,7 @@ const AboutUs = () => {
     missionVision: false,
     whyChooseUs: false,
     features: false,
-    cta: false
+    cta: false,
   });
 
   const headerRef = useRef(null);
@@ -33,7 +39,7 @@ const AboutUs = () => {
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
-            setVisibleSections(prev => ({ ...prev, [section]: true }));
+            setVisibleSections((prev) => ({ ...prev, [section]: true }));
             observer.unobserve(entry.target);
           }
         },
@@ -46,22 +52,22 @@ const AboutUs = () => {
       }
     };
 
-    createObserver(headerRef, 'header');
-    createObserver(mainContentRef, 'mainContent');
-    createObserver(missionVisionRef, 'missionVision');
-    createObserver(whyChooseUsRef, 'whyChooseUs');
-    createObserver(featuresRef, 'features');
-    createObserver(ctaRef, 'cta');
+    createObserver(headerRef, "header");
+    createObserver(mainContentRef, "mainContent");
+    createObserver(missionVisionRef, "missionVision");
+    createObserver(whyChooseUsRef, "whyChooseUs");
+    createObserver(featuresRef, "features");
+    createObserver(ctaRef, "cta");
 
     return () => {
-      observers.forEach(observer => observer.disconnect());
+      observers.forEach((observer) => observer.disconnect());
     };
   }, []);
 
   return (
     <div className="bg-[#1E453E]">
       {/* Header with animation */}
-      <div 
+      <div
         ref={headerRef}
         className={`flex items-center justify-center interbold font-bold text-7xl py-20 ${
           visibleSections.header ? "animate-swipe-up" : "opacity-0"
@@ -71,14 +77,16 @@ const AboutUs = () => {
       </div>
 
       {/* Main content section */}
-      <div 
+      <div
         ref={mainContentRef}
         className="flex flex-col md:flex-row items-stretch max-w-full px-8 gap-8"
       >
         {/* Image with animation */}
-        <div className={`flex-1 min-h-[600px] rounded-2xl overflow-hidden ${
-          visibleSections.mainContent ? "animate-swipe-up" : "opacity-0"
-        }`}>
+        <div
+          className={`flex-1 min-h-[600px] rounded-2xl overflow-hidden ${
+            visibleSections.mainContent ? "animate-swipe-up" : "opacity-0"
+          }`}
+        >
           <div className="w-full h-full bg-gradient-to-tr from-[#1E453E]/70 to-[#2D6B5D]/70 flex items-center justify-center">
             <img
               src={passportImage}
@@ -90,23 +98,33 @@ const AboutUs = () => {
 
         {/* Text content with staggered animations */}
         <div className="flex-1 order-1 md:order-2">
-          <h3 className={`text-2xl md:text-3xl font-semibold mb-6 text-white ${
-            visibleSections.mainContent ? "animate-swipe-up" : "opacity-0"
-          }`}>
+          <h3
+            className={`text-2xl md:text-3xl font-semibold mb-6 text-white ${
+              visibleSections.mainContent ? "animate-swipe-up" : "opacity-0"
+            }`}
+          >
             Who We Are
           </h3>
-          <p className={`text-base md:text-lg font-['Inter'] text-white leading-relaxed mb-6 ${
-            visibleSections.mainContent ? "animate-swipe-up delay-100" : "opacity-0"
-          }`}>
+          <p
+            className={`text-base md:text-lg font-['Inter'] text-white leading-relaxed mb-6 ${
+              visibleSections.mainContent
+                ? "animate-swipe-up delay-100"
+                : "opacity-0"
+            }`}
+          >
             North Vista Global was formed through a strategic alliance between
             North Vista Immigration (NVI) and Strategic Minds Global Consulting
             (SMGC). We enable investors, entrepreneurs, retirees, and digital
             nomads to embrace global mobility and unlock cross-border
             opportunities.
           </p>
-          <div className={`flex items-center border border-white p-4 rounded-lg bg-[#2D6B5D]/10 ${
-            visibleSections.mainContent ? "animate-swipe-up delay-200" : "opacity-0"
-          }`}>
+          <div
+            className={`flex items-center border border-white p-4 rounded-lg bg-[#2D6B5D]/10 ${
+              visibleSections.mainContent
+                ? "animate-swipe-up delay-200"
+                : "opacity-0"
+            }`}
+          >
             <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#E2725B]/20 text-[#E2725B] font-bold text-xl mr-4">
               ✓
             </div>
@@ -121,11 +139,15 @@ const AboutUs = () => {
       </div>
 
       {/* Mission and Vision with animations */}
-      <div 
+      <div
         ref={missionVisionRef}
         className="grid md:grid-cols-2 gap-12 mb-28 py-10 px-10"
       >
-        <div className={visibleSections.missionVision ? "animate-swipe-up" : "opacity-0"}>
+        <div
+          className={
+            visibleSections.missionVision ? "animate-swipe-up" : "opacity-0"
+          }
+        >
           <h3 className="text-2xl md:text-3xl intersemibold text-white mb-4">
             Our Mission
           </h3>
@@ -135,7 +157,13 @@ const AboutUs = () => {
             guidance and personalized service.
           </p>
         </div>
-        <div className={visibleSections.missionVision ? "animate-swipe-up delay-300" : "opacity-0"}>
+        <div
+          className={
+            visibleSections.missionVision
+              ? "animate-swipe-up delay-300"
+              : "opacity-0"
+          }
+        >
           <h3 className="text-2xl md:text-3xl intersemibold text-white mb-4">
             Our Vision
           </h3>
@@ -157,7 +185,9 @@ const AboutUs = () => {
         </h2>
         <p
           className={`text-lg font-['Inter'] text-white ${
-            visibleSections.whyChooseUs ? "animate-swipe-up delay-100" : "opacity-0"
+            visibleSections.whyChooseUs
+              ? "animate-swipe-up delay-100"
+              : "opacity-0"
           }`}
         >
           What Sets Us Apart
@@ -165,31 +195,58 @@ const AboutUs = () => {
       </div>
 
       {/* Feature cards with staggered animations */}
-      <div ref={featuresRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-28 px-8">
-        <div className={visibleSections.features ? "animate-swipe-up delay-200" : "opacity-0"}>
+      <div
+        ref={featuresRef}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-28 px-8"
+      >
+        <div
+          className={
+            visibleSections.features
+              ? "animate-swipe-up delay-200"
+              : "opacity-0"
+          }
+        >
           <InfoHighlight
-            icon="🌍"
+            icon={globeIcon}
             title="Global Expertise"
             text="Our worldwide network provides unmatched access to key immigration opportunities."
           />
         </div>
-        <div className={visibleSections.features ? "animate-swipe-up delay-300" : "opacity-0"}>
+        <div
+          className={
+            visibleSections.features
+              ? "animate-swipe-up delay-300"
+              : "opacity-0"
+          }
+        >
           <InfoHighlight
-            icon="👤"
+            icon={personIcon}
             title="Personalized Service"
             text="Tailored solutions for high-net-worth individuals and family migration goals."
           />
         </div>
-        <div className={visibleSections.features ? "animate-swipe-up delay-400" : "opacity-0"}>
+        <div
+          className={
+            visibleSections.features
+              ? "animate-swipe-up delay-400"
+              : "opacity-0"
+          }
+        >
           <InfoHighlight
-            icon="📋"
+            icon={documentIcon}
             title="End-to-End Guidance"
             text="We're with you from your first consultation to final approvals and beyond."
           />
         </div>
-        <div className={visibleSections.features ? "animate-swipe-up delay-500" : "opacity-0"}>
+        <div
+          className={
+            visibleSections.features
+              ? "animate-swipe-up delay-500"
+              : "opacity-0"
+          }
+        >
           <InfoHighlight
-            icon="💡"
+            icon={bulbIcon}
             title="Technology Driven"
             text="Secure, transparent, and digital-first processes for a seamless experience."
           />
@@ -197,7 +254,7 @@ const AboutUs = () => {
       </div>
 
       {/* Final CTA with animation */}
-      <div 
+      <div
         ref={ctaRef}
         className={`p-12 sm:p-16 rounded-xl text-center shadow-xl mx-8 ${
           visibleSections.cta ? "animate-swipe-up" : "opacity-0"
@@ -219,9 +276,3 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
-
-
-
-
-
-
