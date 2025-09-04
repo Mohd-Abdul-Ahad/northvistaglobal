@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import globalIcon from "../assets/icons/global.svg";
 import trustedIcon from "../assets/icons/trustedexpertise.svg";
 import briefcaseIcon from "../assets/icons/briefcase.svg";
@@ -8,25 +9,25 @@ const WhyChooseUs = () => {
   const features = [
     {
       icon: globalIcon,
-      title: "Global Coverage",
-      description: "From the USA to the Caribbean, Europe, and Asia.",
+      title: "Global Reach",
+      description: "Expertise across 25+ countries.",
     },
     {
       icon: trustedIcon,
       title: "Trusted Expertise",
       description:
-        "Powered by North Vista Immigration & SMGC's global consulting network.",
+        "Alliance between North Vista Immigration & SMGC with vetted partner network.",
     },
     {
       icon: briefcaseIcon,
-      title: "Tailored for HNWIs",
+      title: "HNWI Focus",
       description:
-        "Customized pathways for investors, entrepreneurs & retirees.",
+        "Bespoke strategies for investors, entrepreneurs, and families.",
     },
     {
       icon: handshakeIcon,
-      title: "Seamless Service",
-      description: "AI-driven CRM and client support.",
+      title: "AI-Powered Service",
+      description: "Streamlined onboarding, private & efficient support.",
     },
   ];
 
@@ -36,11 +37,6 @@ const WhyChooseUs = () => {
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           {/* Left Content */}
           <div className="lg:w-2/5">
-            <div className="inline-block bg-[#FEF2E8] px-6 py-2 rounded-full mb-6">
-              <span className="text-[#C44D34] text-base font-medium uppercase tracking-wide">
-                Our Advantages
-              </span>
-            </div>
             <h2 className="text-4xl sm:text-5xl font-bold text-[#1E453E] leading-tight mb-6">
               Why Choose North Vista Global?
             </h2>
@@ -51,10 +47,10 @@ const WhyChooseUs = () => {
 
             {/* CTA */}
             <div className="text-left">
-              <button className="px-10 py-4 bg-[#1E453E] text-white text-lg rounded-md font-medium hover:bg-[#2D3748] transition-all duration-300 transform hover:-translate-y-1">
-                Start Your Journey Today
+              <button className="px-10 py-4 bg-[#1E453E] text-white text-lg rounded-md font-medium transition-all duration-300 transform hover:-translate-y-1">
+                <Link to="/contact"> Book a Free Consultation</Link>
               </button>
-              <p className="text-[#6B7280] text-base mt-4">
+              <p className="text-[#6B7280] text-base mt-4"  >
                 Schedule a free consultation with our experts
               </p>
             </div>

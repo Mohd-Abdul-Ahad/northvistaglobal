@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import usaFlag from "../assets/Images/countries/usa.webp";
 import canadaFlag from "../assets/Images/countries/canada.webp";
 import portugalFlag from "../assets/Images/countries/portugal.webp";
@@ -11,6 +11,7 @@ import brazilFlag from "../assets/Images/countries/Brazil.webp";
 import indonesiaFlag from "../assets/Images/countries/Indonesia.webp";
 import caribbeanFlag from "../assets/Images/countries/caribbean.webp";
 import europeFlag from "../assets/Images/countries/europe.webp";
+import ColombiaImage from "../assets/Images/countries/Colombia.jpg";
 
 // Import images for business and legacy sections
 import structuringInvestmentsImg from "../assets/Images/countries/structuringinvestments.webp";
@@ -23,6 +24,19 @@ import successionPlanningImg from "../assets/Images/countries/successionplanning
 
 const ProgramsSection = () => {
   const [activeTab, setActiveTab] = useState("residence");
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tab = urlParams.get("tab");
+
+    if (tab && sections.some((section) => section.id === tab)) {
+      setActiveTab(tab);
+
+      // Optional: Scroll to section
+      const section = document.getElementById("programs");
+      section?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
 
   const flagImages = {
     USA: usaFlag,
@@ -37,171 +51,184 @@ const ProgramsSection = () => {
     INDONESIA: indonesiaFlag,
     CARIBBEAN: caribbeanFlag,
     EUROPE: europeFlag,
+    COLOMBIA: ColombiaImage,
   };
 
   const citizenshipPrograms = [
     {
-      name: "USA EB-5",
-      description: "Green Card through $800,000+ investment.",
-      investment: "From $800,000",
-      flag: "USA",
-      processing: "24-36 months",
-    },
-    {
-      name: "Canada PNP",
-      description: "Entrepreneurial PR pathways.",
-      investment: "Contact For Details",
-      flag: "CANADA",
-      processing: "12-24 months",
-    },
-    {
-      name: "Europe Golden Visas",
-      description: "Portugal, Greece, Malta.",
-      investment: "Contact For Details",
-      flag: "EUROPE",
-      processing: "6-12 months",
-    },
-    {
-      name: "Caribbean CBI",
-      description: "Fast-track passports.",
-      investment: "Contact For Details",
-      flag: "CARIBBEAN",
-      processing: "3-6 months",
-    },
-    {
-      name: "UAE Golden Visa",
-      description: "10-year renewable residency.",
-      investment: "Contact For Details",
-      flag: "UAE",
-      processing: "2-4 months",
-    },
-  ];
-
-  const residencePrograms = [
-    {
       name: "EB-5 Investor Visa",
-      description: "Secure U.S. Green Cards through capital investment.",
-      investment: "Contact For Details",
+      description:
+        "Green Card via $800K+ investment through approved channels.",
+      investment: "$800,000+",
       flag: "USA",
       processing: "24-36 months",
+      bullets: [
+        "Family coverage",
+        "Job-creation compliance",
+        "Access to U.S. education & markets",
+      ],
+      cta: "Explore EB-5",
     },
     {
-      name: "PNP Entrepreneur Streams",
-      description: "Pathway to Canadian residency through business.",
-      investment: "Contact For Details",
+      name: "Newbrunswick PNP Entrepreneur Streams",
+      description: "Build or acquire a business for pathways to Canadian PR.",
+      investment: "$150,000 - $600,000 CAD",
       flag: "CANADA",
-      processing: "12-24 months",
+      processing: "12–18 months ",
+      bullets: ["Job creation, Provincial nomination"],
+      cta: "Explore Canada PNP",
     },
     {
-      name: "Portugal Golden Visa",
-      description: "Residency with Schengen mobility.",
-      investment: "Contact For Details",
-      flag: "PORTUGAL",
-      processing: "6-12 months",
+      name: "Europe – Golden Visas (Portugal, Greece, Malta)",
+      description:
+        "Residency with Schengen mobility and future EU citizenship.",
+      investment: "Contact For Details.",
+      flag: "EUROPE",
+      processing: "Contact For Details.",
     },
     {
       name: "Caribbean Citizenship by Investment",
       description: "Fast-track passports with visa-free access.",
       investment: "Contact For Details",
       flag: "CARIBBEAN",
-      processing: "3-6 months",
+      processing: "Contact For Details.",
     },
     {
-      name: "Panama Retiree Residency",
-      description: "Premium retirement lifestyle abroad.",
-      investment: "Contact For Details",
-      flag: "PANAMA",
-      processing: "2-4 months",
+      name: "UAE Golden Visa",
+      description: "Renewable 10-year residency in a tax-free hub.",
+      investment: "Contact For Details.",
+      flag: "UAE",
+      processing: "Contact For Details.",
+    },
+  ];
+
+  const residencePrograms = [
+    {
+      name: "EB-5 Investor Visa",
+      description:
+        "Green Card via $800K+ investment through approved channels.",
+      investment: "$800,000+",
+      flag: "USA",
+      processing:
+        "24–36 months for I-526E adjudication; concurrent AOS filing possible",
+      bullets: [
+        "Family coverage",
+        "Job-creation compliance",
+        "Access to U.S. education & markets",
+      ],
+      cta: "Explore EB-5",
     },
     {
-      name: "Mauritius Retiree Residency",
-      description: "Premium retirement lifestyle abroad.",
-      investment: "Contact For Details",
-      flag: "MAURITIUS",
-      processing: "2-3 months",
+      name: "Newbrunswick PNP Entrepreneur Streams",
+      description: "Build or acquire a business for pathways to Canadian PR.",
+      investment: "$150,000 - $600,000 CAD",
+      flag: "CANADA",
+      processing: "12–18 months for PR nomination and approval",
+      bullets: ["Job creation, Provincial nomination"],
+      cta: "Explore Canada PNP",
     },
     {
-      name: "Thailand Retiree Residency",
-      description: "Premium retirement lifestyle abroad.",
+      name: "Europe – Golden Visas (Portugal, Greece, Malta)",
+      description:
+        "Residency with Schengen mobility and future EU citizenship.",
+      investment: "Contact For Details.",
+      flag: "EUROPE",
+      processing: "Contact For Details.",
+    },
+    {
+      name: "Caribbean Citizenship by Investment",
+      description: "Fast-track passports with visa-free access.",
       investment: "Contact For Details",
-      flag: "THAILAND",
-      processing: "2-3 months",
+      flag: "CARIBBEAN",
+      processing: "Contact For Details.",
+    },
+    {
+      name: "UAE Golden Visa",
+      description: "Renewable 10-year residency in a tax-free hub.",
+      investment: "Contact For Details.",
+      flag: "UAE",
+      processing: "Contact For Details.",
     },
   ];
 
   const digitalNomadPrograms = [
     {
       name: "Portugal",
-      description: "Digital Nomad Visa for remote workers.",
-      benefits: "Legal residency, tax efficiency, global networking.",
-      investment: "Contact For Details",
+      description:
+        "Flexible legal residency for remote professionals seeking mobility and tax advantages.",
+      investment: "Contact For Details.",
       flag: "PORTUGAL",
-      processing: "4-6 weeks",
+      processing: "Contact For Details.",
     },
     {
       name: "Estonia",
-      description: "Digital Nomad Visa for location-independent professionals.",
-      benefits: "Legal residency, tax efficiency, global networking.",
+      description:
+        "Flexible legal residency for remote professionals seeking mobility and tax advantages.",
       investment: "Contact For Details",
       flag: "ESTONIA",
-      processing: "3-4 weeks",
+      processing: "6–12 weeks depending on country",
     },
     {
       name: "Panama",
-      description: "Remote Worker Visa program.",
-      benefits: "Legal residency, tax efficiency, global networking.",
+      description:
+        "Flexible legal residency for remote professionals seeking mobility and tax advantages.",
       investment: "Contact For Details",
       flag: "PANAMA",
-      processing: "4-6 weeks",
+      processing: "6–12 weeks depending on country",
     },
     {
-      name: "Brazil",
-      description: "Digital Nomad Visa for remote professionals.",
-      benefits: "Legal residency, tax efficiency, global networking.",
+      name: "Colombia",
+      description:
+        "Flexible legal residency for remote professionals seeking mobility and tax advantages.",
       investment: "Contact For Details",
-      flag: "BRAZIL",
-      processing: "4-8 weeks",
+      flag: "COLOMBIA",
+      processing: "Contact For Details.",
     },
     {
       name: "Thailand",
-      description: "Long-Term Resident Visa for remote workers.",
-      benefits: "Legal residency, tax efficiency, global networking.",
+      description:
+        "Flexible legal residency for remote professionals seeking mobility and tax advantages.",
       investment: "Contact For Details",
       flag: "THAILAND",
-      processing: "6-8 weeks",
+      processing: "Contact For Details.",
     },
     {
       name: "Indonesia",
-      description: "B211A Visa for digital nomads.",
-      benefits: "Legal residency, tax efficiency, global networking.",
+      description:
+        "Flexible legal residency for remote professionals seeking mobility and tax advantages.",
       investment: "Contact For Details",
       flag: "INDONESIA",
-      processing: "4-6 weeks",
+      processing: "Contact For Details.",
     },
   ];
 
   const retireeResidencySolutions = [
     {
       name: "Panama Pensionado",
-      description: "Pensionado Visa for retirees with guaranteed income.",
-      investment: "Contact For Details",
+      description: "Permanent residency with pension‑based eligibility.",
+      investment: "Contact for Details.",
       flag: "PANAMA",
-      processing: "2-3 months",
+      processing: "3–4 months for permanent residency approval",
+      bullets: [
+        "Lifestyle discounts, No tax on foreign income, Friendly expat communities ",
+      ],
+      cta: "Explore Pensionado",
     },
     {
       name: "Mauritius Retirement",
       description:
-        "Retiree Residence Permit for those seeking tropical retirement.",
-      investment: "Contact For Details",
+        "Affordable, secure, and lifestyle-driven retirement destinations.",
+      investment: "Contact For Details.",
       flag: "MAURITIUS",
-      processing: "2-3 months",
+      processing: "	4–6 weeks",
     },
     {
       name: "Thailand Retirement",
-      description: "O-A & O-X Retirement Visas for long-term stays.",
-      investment: "Contact For Details",
+      description:
+        "Affordable, secure, and lifestyle-driven retirement destinations.",
+      investment: "Contact For Details.",
       flag: "THAILAND",
-      processing: "1-2 months",
+      processing: "6–8 weeks",
     },
   ];
 
@@ -322,6 +349,20 @@ const ProgramsSection = () => {
             {program.description}
           </p>
 
+          {/* Bullet points for EB-5 */}
+          {program.bullets && (
+            <div className="mb-3">
+              <ul className="text-xs text-gray-600 space-y-1">
+                {program.bullets.map((bullet, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-[#1E453E] mr-2">•</span>
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {program.benefits && (
             <div className="mb-3">
               <p className="text-xs font-semibold text-[#1E453E] mb-1">
@@ -343,12 +384,20 @@ const ProgramsSection = () => {
             {program.processing && (
               <div className="text-right">
                 <p className="uppercase mb-1 font-semibold">Processing</p>
-                <p>{program.processing}</p>
+                <p className="w-60">{program.processing}</p>
               </div>
             )}
           </div>
+          <div className="border-t border-[#1E453E]/20 pt-3 mt-auto">
+            <div className="flex justify-between items-center mb-3 text-xs text-gray-600 italic">
+              <p>
+                Processing times are averages and subject to change based on
+                applicant profile and government processing.
+              </p>
+            </div>
+          </div>
           <button className="w-full px-4 py-2.5 bg-[#1E453E] text-white hover:bg-[#2a5c52] rounded text-sm font-medium transition-colors">
-            Learn More
+            {program.cta || "Learn More"}
           </button>
         </div>
       </div>
@@ -375,12 +424,12 @@ const ProgramsSection = () => {
   }, [activeTab]);
 
   return (
-    <div className="w-full py-16 bg-gray-50">
+    <div id="programs" className="w-full py-16 bg-gray-50">
       <div className="container mx-auto px-6">
         {/* Page Header */}
         <div className="text-center mb-10 animate-fade-in">
           <h1 className="text-3xl md:text-4xl text-[#1E453E] font-bold mb-3">
-            Featured Immigration Programs
+            Our Services
           </h1>
           <p className="text-gray-600 max-w-3xl mx-auto">
             Discover our comprehensive range of global immigration and

@@ -4,6 +4,7 @@ import globeIcon from "../assets/icons/global.svg";
 import personIcon from "../assets/icons/user.svg";
 import documentIcon from "../assets/icons/briefcase.svg";
 import bulbIcon from "../assets/icons/strategicexpertise.svg";
+import { Link } from "react-router-dom";
 
 const InfoHighlight = ({ icon, title, text }) => (
   <div className="p-6 rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
@@ -264,12 +265,25 @@ const AboutUs = () => {
           Ready to Expand Beyond Borders?
         </h3>
         <p className="text-base md:text-lg font-['Inter'] text-white mb-8 max-w-2xl mx-auto leading-relaxed">
-          Reach out today to begin your personalized global mobility journey
-          with North Vista Global.
+          At North Vista Global, we are more than advisors — we are partners in
+          your global journey. Our commitment is to Deliver excellence with
+          discretion. - Simplify complex immigration processes. - Empower
+          families with secure and lasting opportunities abroad.
         </p>
-        <button className="bg-transparent border-2 text-white hover:bg-white hover:text-[#1E453E] text-base md:text-lg px-8 py-3 rounded-md font-medium transition-all duration-300">
-          Contact Us
-        </button>
+        <p className="mb-4 intersemibold text-2xl">
+          Your Global Journey Starts Here.
+        </p>
+        <div className="flex gap-4 items-center justify-center">
+          <button className="bg-transparent border-2 text-white hover:bg-white hover:text-[#1E453E] text-base md:text-lg px-8 py-3 rounded-md font-medium transition-all duration-300">
+            <Link to="/contact"> Book a Free Consultation</Link>
+          </button>
+          <a
+            href="#programs"
+            className="bg-transparent border-2 text-white hover:bg-white hover:text-[#1E453E] text-base md:text-lg px-8 py-3 rounded-md font-medium transition-all duration-300"
+          >
+            Explore Our Programs
+          </a>
+        </div>
       </div>
     </div>
   );

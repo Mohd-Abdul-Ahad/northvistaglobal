@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import Logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const location = useLocation();
 
   useEffect(() => {
@@ -11,8 +13,20 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 100);
     };
 
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      if (window.innerWidth >= 768) {
+        setIsOpen(false);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   // Close mobile menu when route changes
@@ -23,43 +37,45 @@ const Navbar = () => {
   return (
     <div
       className={`w-full transition-all duration-300 ${
-        isScrolled ? "sticky-nav py-3" : "py-4"
+        isScrolled ? "sticky top-0 z-50 py-3" : "py-4"
       } bg-[#1E453E]`}
     >
-      <div className="container mx-auto flex justify-between items-center px-6">
+      <div className="container mx-auto flex justify-between items-center px-4 md:px-6">
         <div>
-          <Link to="/" className="text-xl font-bold text-white tracking-tight">
-            North Vista Global
+          <Link to="/" className="text-white tracking-tight">
+            <div className="h-10 md:h-14 flex items-center">
+              <img
+                src={Logo}
+                alt="North Vista Global — Global Residency & Citizenship Advisory"
+                className="max-h-full w-auto"
+              />
+            </div>
           </Link>
         </div>
 
-        <ul className="hidden md:flex gap-8 items-center">
-          {["Citizenship", "Residence", "Countries", "Services", "About"].map(
-            (item) => (
-              <li key={item} className="group relative">
-                <span className="cursor-pointer text-white text-sm font-medium transition-all duration-300 py-2 relative">
-                  {item}
-                  <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
-                </span>
-              </li>
-            )
-          )}
-
-          {/* Contact as white text link */}
+        {/* Desktop Navigation */}
+        <ul className="hidden md:flex gap-5 items-center justify-center intersemibold">
+          <li className="cursor-pointer">
+            <Link to="/" className="text-white hover:text-gray-200 transition-colors">Home</Link>
+          </li>
+          <li className="cursor-pointer">
+            <Link to="/about" className="text-white hover:text-gray-200 transition-colors">About</Link>
+          </li>
+          <li className="cursor-pointer">
+            <Link to="/services" className="text-white hover:text-gray-200 transition-colors">Services</Link>
+          </li>
           <li>
-            <span
-              // to="/contact"
-              className="text-white text-sm font-medium transition-all duration-300 hover:no-underline"
-            >
-              Contact
-            </span>
+            <button className="bg-white/10 text-white backdrop-blur-sm py-2 px-5 rounded-md border border-white/20 hover:bg-white/20 transition duration-200">
+              <Link to="/contact">Book a Free Consultation</Link>
+            </button>
           </li>
         </ul>
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-white p-2"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
         >
           <svg
             className="w-6 h-6"
@@ -78,30 +94,38 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white shadow-lg border-t border-gray-200 px-6 py-4 animate-fade-in">
-          <ul className="space-y-3">
-            {["Citizenship", "Residence", "Countries", "Services", "About"].map(
-              (item) => (
-                <li key={item} className="group">
-                  <span className="cursor-pointer text-[#1E453E] hover:text-[#D4AF37] text-base font-medium block py-2 border-b border-gray-100 relative">
-                    {item}
-                    <span className="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-[#1E453E] transition-all duration-300 group-hover:w-full"></span>
-                  </span>
-                </li>
-              )
-            )}
-            <li>
-              <span
-                // to="/contact"
-                className="block text-[#1E453E] font-medium mt-2 hover:no-underline"
-              >
-                Contact
-              </span>
-            </li>
-          </ul>
+      <div className={`md:hidden bg-[#1E453E] overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96" : "max-h-0"}`}>
+        <div className="px-4 py-4 space-y-4">
+          <Link 
+            to="/" 
+            className="block text-white py-2 px-4 hover:bg-white/10 rounded-md transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            Home
+          </Link>
+          <Link 
+            to="/about" 
+            className="block text-white py-2 px-4 hover:bg-white/10 rounded-md transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            About
+          </Link>
+          <Link 
+            to="/services" 
+            className="block text-white py-2 px-4 hover:bg-white/10 rounded-md transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            Services
+          </Link>
+          <Link 
+            to="/contact" 
+            className="block bg-white/10 text-white backdrop-blur-sm py-3 px-5 rounded-md border border-white/20 hover:bg-white/20 transition duration-200 text-center mt-4"
+            onClick={() => setIsOpen(false)}
+          >
+            Book a Free Consultation
+          </Link>
         </div>
-      )}
+      </div>
     </div>
   );
 };
