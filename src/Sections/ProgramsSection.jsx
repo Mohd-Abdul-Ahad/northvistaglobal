@@ -296,12 +296,12 @@ const ProgramsSection = () => {
   ];
 
   const TabNavigation = () => (
-    <div className="flex flex-wrap justify-center gap-3 mb-10 animate-fade-in">
+    <div className="flex flex-wrap justify-center gap-2 mb-8 md:mb-10 animate-fade-in overflow-x-auto py-2 px-1">
       {sections.map(({ id, label }) => (
         <button
           key={id}
           onClick={() => setActiveTab(id)}
-          className={`px-5 py-2 rounded-full font-semibold transition-all ${
+          className={`px-3 py-1.5 md:px-5 md:py-2 rounded-full font-semibold transition-all text-sm md:text-base whitespace-nowrap ${
             activeTab === id
               ? "bg-[#1E453E] text-white"
               : "bg-white text-[#1E453E] border border-[#1E453E] hover:bg-[#1E453E] hover:text-white"
@@ -316,7 +316,7 @@ const ProgramsSection = () => {
   const ProgramCard = React.memo(({ program, type }) => (
     <div className="bg-white rounded-lg border border-[#1E453E]/20 h-full flex flex-col transition-all duration-300 hover:shadow-lg overflow-hidden">
       {/* Image at the top of the card */}
-      <div className="w-full h-80 overflow-hidden">
+      <div className="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 overflow-hidden">
         {flagImages[program.flag] ? (
           <img
             src={flagImages[program.flag]}
@@ -334,18 +334,18 @@ const ProgramsSection = () => {
         ) : null}
       </div>
 
-      <div className="p-5 flex flex-col flex-grow">
+      <div className="p-4 md:p-5 flex flex-col flex-grow">
         <div className="flex-grow">
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center justify-between mb-2 md:mb-3">
             <div className="bg-[#1E453E] text-white text-xs font-medium px-2 py-1 rounded">
               {type}
             </div>
           </div>
 
-          <h3 className="text-lg text-[#1E453E] font-bold mb-2">
+          <h3 className="text-base md:text-lg text-[#1E453E] font-bold mb-2">
             {program.name}
           </h3>
-          <p className="text-sm text-gray-600 leading-relaxed mb-3">
+          <p className="text-xs md:text-sm text-gray-600 leading-relaxed mb-3">
             {program.description}
           </p>
 
@@ -374,29 +374,31 @@ const ProgramsSection = () => {
         </div>
 
         <div className="border-t border-[#1E453E]/20 pt-3 mt-auto">
-          <div className="flex justify-between items-center mb-3 text-xs text-gray-600">
+          <div className="flex flex-col sm:flex-row justify-between gap-2 mb-3 text-xs text-gray-600">
             {program.investment && (
-              <div>
+              <div className="flex-1">
                 <p className="uppercase mb-1 font-semibold">Investment</p>
-                <p className="font-bold text-[#1E453E]">{program.investment}</p>
+                <p className="font-bold text-[#1E453E] break-words">
+                  {program.investment}
+                </p>
               </div>
             )}
             {program.processing && (
-              <div className="text-right">
+              <div className="flex-1 sm:text-right">
                 <p className="uppercase mb-1 font-semibold">Processing</p>
-                <p className="w-60">{program.processing}</p>
+                <p className="break-words">{program.processing}</p>
               </div>
             )}
           </div>
           <div className="border-t border-[#1E453E]/20 pt-3 mt-auto">
             <div className="flex justify-between items-center mb-3 text-xs text-gray-600 italic">
-              <p>
+              <p className="text-xs">
                 Processing times are averages and subject to change based on
                 applicant profile and government processing.
               </p>
             </div>
           </div>
-          <button className="w-full px-4 py-2.5 bg-[#1E453E] text-white hover:bg-[#2a5c52] rounded text-sm font-medium transition-colors">
+          <button className="w-full px-3 py-2 md:px-4 md:py-2.5 bg-[#1E453E] text-white hover:bg-[#2a5c52] rounded text-sm font-medium transition-colors">
             {program.cta || "Learn More"}
           </button>
         </div>
@@ -405,33 +407,36 @@ const ProgramsSection = () => {
   ));
 
   const SectionHeader = ({ title, description }) => (
-    <div className="text-center mb-8 IntersectionObserver">
-      <div className="inline-flex items-center justify-center gap-2 mb-2 px-4 py-1 bg-[#1E453E] rounded-full">
+    <div className="text-center mb-6 md:mb-8">
+      <div className="inline-flex items-center justify-center gap-2 mb-2 px-3 py-1 md:px-4 md:py-1 bg-[#1E453E] rounded-full">
         <span className="text-white text-xs font-medium uppercase tracking-wide">
           Programs
         </span>
       </div>
-      <h2 className="text-2xl md:text-3xl text-[#1E453E] font-bold mb-2">
+      <h2 className="text-xl md:text-2xl lg:text-3xl text-[#1E453E] font-bold mb-2">
         {title}
       </h2>
       {description && (
-        <p className="text-gray-600 max-w-2xl mx-auto text-sm">{description}</p>
+        <p className="text-gray-600 max-w-2xl mx-auto text-sm px-2">
+          {description}
+        </p>
       )}
     </div>
   );
+
   const activeData = useMemo(() => {
     return sections.find((s) => s.id === activeTab);
   }, [activeTab]);
 
   return (
-    <div id="programs" className="w-full py-16 bg-gray-50">
-      <div className="container mx-auto px-6">
+    <div id="programs" className="w-full py-12 md:py-16 bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Page Header */}
-        <div className="text-center mb-10 animate-fade-in">
-          <h1 className="text-3xl md:text-4xl text-[#1E453E] font-bold mb-3">
+        <div className="text-center mb-8 md:mb-10 animate-fade-in">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl text-[#1E453E] font-bold mb-3">
             Our Services
           </h1>
-          <p className="text-gray-600 max-w-3xl mx-auto">
+          <p className="text-gray-600 max-w-3xl mx-auto px-2 text-sm md:text-base">
             Discover our comprehensive range of global immigration and
             investment programs tailored to your needs.
           </p>
@@ -441,12 +446,12 @@ const ProgramsSection = () => {
         <TabNavigation />
 
         {/* Content */}
-        <div className="mb-12">
+        <div className="mb-10 md:mb-12">
           <SectionHeader
             title={activeData.label}
             description={`Explore opportunities for ${activeData.label.toLowerCase()} around the world.`}
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {activeData.data.map((program, idx) => (
               <ProgramCard
                 key={idx}

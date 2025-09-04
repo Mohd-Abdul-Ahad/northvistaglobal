@@ -198,51 +198,50 @@ const ServicesSection = () => {
     },
   ];
 
-  return (
+   return (
     <section
-      className="w-full py-16 bg-[#F8F9FA]"
+      className="w-full py-12 md:py-16 bg-[#F8F9FA]"
       aria-labelledby="services-heading"
     >
-      <div className="container mx-auto px-6 lg:px-12 xl:px-24">
-        <div className="text-center mb-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-24">
+        <div className="text-center mb-8 md:mb-12">
           <h2
             id="services-heading"
-            className="interbold text-3xl md:text-4xl text-[#2D3748] mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl text-[#2D3748] mb-3 md:mb-4 font-bold"
           >
             Choose Your Global Pathway
           </h2>
-          <p className="mainTxt text-[#4B5563] max-w-2xl mx-auto">
+          <p className="text-[#4B5563] max-w-2xl mx-auto text-sm md:text-base px-2 sm:px-0">
             Whether you're planning a second residency, a strategic passport,
             remote-work flexibility, or cross-border expansion, NVG guides you
             end-to-end.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 px-2 sm:px-0">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-sm shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 group"
+              className="bg-white p-5 sm:p-6 md:p-8 rounded-sm shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 group flex flex-col"
             >
               <div
-                className="bg-[#1E453E] w-16 h-16 rounded-sm flex items-center justify-center mb-6 text-white"
+                className="bg-[#1E453E] w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-sm flex items-center justify-center mb-4 md:mb-6 text-white flex-shrink-0"
                 aria-hidden="true"
               >
-                <service.icon />
+                <service.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
               </div>
-              <h3 className="boldTxt text-xl text-[#2D3748] mb-4 group-hover:text-[#1E453E] transition-colors duration-300">
+              <h3 className="text-lg sm:text-xl text-[#2D3748] mb-3 md:mb-4 group-hover:text-[#1E453E] transition-colors duration-300 font-semibold">
                 {service.title}
               </h3>
-              <p className="mainTxt text-[#4B5563] mb-6 leading-relaxed">
+              <p className="text-[#4B5563] mb-4 md:mb-6 leading-relaxed text-sm md:text-base flex-grow">
                 {service.description}
               </p>
               <a
                 href={`?tab=${service.targetTab}#programs`}
-                className="flex items-center text-[#1E453E] hover:text-[#C44D34] mainTxt font-medium underline hover:no-underline focus:underline focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:ring-offset-2 rounded-sm px-2 -ml-2"
+                className="flex items-center text-[#1E453E] hover:text-[#C44D34] font-medium underline hover:no-underline focus:underline focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:ring-offset-2 rounded-sm px-2 -ml-2 text-sm md:text-base mt-auto"
               >
                 Learn More →
               </a>
-
             </div>
           ))}
         </div>

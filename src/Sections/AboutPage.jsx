@@ -205,9 +205,9 @@ const AboutPage = () => {
               professionals to unlock opportunity beyond borders through
               tailored strategies and a trusted partner network.
             </p>
-            <button className="bg-[#1E453E] hover:bg-[#2a5c52] text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1">
+            <Link to="/contact" className="bg-[#1E453E] hover:bg-[#2a5c52] text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1">
               Book a Free Consultation
-            </button>
+            </Link>
           </div>
         </section>
 
@@ -484,9 +484,9 @@ const AboutPage = () => {
                 expansion expertise, backed by a global network of vetted,
                 licensed partners.
               </p>
-              <button className="bg-[#1E453E] hover:bg-[#2a5c52] text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1">
+              <Link to="/contact" className="bg-[#1E453E] hover:bg-[#2a5c52] text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1">
                 Book a Free Consultation
-              </button>
+              </Link>
             </div>
           </div>
         </section>
