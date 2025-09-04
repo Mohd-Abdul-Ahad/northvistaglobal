@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 
-
 const TrustedBy = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -31,10 +30,6 @@ const TrustedBy = () => {
         </div>
       ),
     },
-
-
-
-
 
     {
       name: "Finance",
@@ -189,4 +184,3 @@ const TrustedBy = () => {
 };
 
 export default TrustedBy;
-
