@@ -140,7 +140,7 @@ const WhyWorkWithUs = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .animate-fade-in {
           animation: fadeIn 0.8s ease-out forwards;
         }

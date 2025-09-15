@@ -57,7 +57,7 @@ const FAQs = () => {
 
   return (
     <section
-      className="py-16 px-4 md:px-8 bg-custom-primary"
+      className="py-16 px-4 md:px-8 bg-white"
       ref={(el) => (faqRefs.current[0] = el)}
     >
       <div className="max-w-4xl mx-auto">
@@ -129,7 +129,10 @@ const FAQs = () => {
           <p className="text-white inter mb-6">
             Still have questions? We're here to help.
           </p>
-          <a href="/contact" className="bg-white hover:bg-opacity-90 text-[#1E453E] font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50">
+          <a
+            href="/contact"
+            className="bg-[#1E453E] hover:bg-opacity-90 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
+          >
             Contact Us
           </a>
         </div>

@@ -22,7 +22,7 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
@@ -56,18 +56,35 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <ul className="hidden md:flex gap-5 items-center justify-center intersemibold">
           <li className="cursor-pointer">
-            <Link to="/" className="text-white hover:text-gray-200 transition-colors">Home</Link>
+            <Link
+              to="/"
+              className="text-white hover:text-gray-200 transition-colors"
+            >
+              Home
+            </Link>
           </li>
           <li className="cursor-pointer">
-            <Link to="/about" className="text-white hover:text-gray-200 transition-colors">About</Link>
+            <Link
+              to="/about"
+              className="text-white hover:text-gray-200 transition-colors"
+            >
+              About
+            </Link>
           </li>
           <li className="cursor-pointer">
-            <Link to="/services" className="text-white hover:text-gray-200 transition-colors">Services</Link>
+            <Link
+              to="/services"
+              className="text-white hover:text-gray-200 transition-colors"
+            >
+              Services
+            </Link>
           </li>
           <li>
-            <button className="bg-white/10 text-white backdrop-blur-sm py-2 px-5 rounded-md border border-white/20 hover:bg-white/20 transition duration-200">
-              <Link to="/contact">Book a Free Consultation</Link>
-            </button>
+            <Link to="/contact">
+              <button className="bg-white/10 text-white backdrop-blur-sm py-2 px-5 rounded-md border border-white/20 hover:bg-white/20 transition duration-200">
+                Book a Free Consultation
+              </button>
+            </Link>
           </li>
         </ul>
 
@@ -94,31 +111,35 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      <div className={`md:hidden bg-[#1E453E] overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96" : "max-h-0"}`}>
+      <div
+        className={`md:hidden bg-[#1E453E] overflow-hidden transition-all duration-300 ${
+          isOpen ? "max-h-96" : "max-h-0"
+        }`}
+      >
         <div className="px-4 py-4 space-y-4">
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="block text-white py-2 px-4 hover:bg-white/10 rounded-md transition-colors"
             onClick={() => setIsOpen(false)}
           >
             Home
           </Link>
-          <Link 
-            to="/about" 
+          <Link
+            to="/about"
             className="block text-white py-2 px-4 hover:bg-white/10 rounded-md transition-colors"
             onClick={() => setIsOpen(false)}
           >
             About
           </Link>
-          <Link 
-            to="/services" 
+          <Link
+            to="/services"
             className="block text-white py-2 px-4 hover:bg-white/10 rounded-md transition-colors"
             onClick={() => setIsOpen(false)}
           >
             Services
           </Link>
-          <Link 
-            to="/contact" 
+          <Link
+            to="/contact"
             className="block bg-white/10 text-white backdrop-blur-sm py-3 px-5 rounded-md border border-white/20 hover:bg-white/20 transition duration-200 text-center mt-4"
             onClick={() => setIsOpen(false)}
           >

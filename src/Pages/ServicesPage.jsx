@@ -2,23 +2,24 @@ import React, { useState, useRef, useEffect } from "react";
 import Navbar from "../Components/Navbar.jsx";
 import Footer from "../Components/Footer.jsx";
 
-// Import country flags
-import usaFlag from "../assets/Images/countries/usa.webp";
-import canadaFlag from "../assets/Images/countries/canada.webp";
-import portugalFlag from "../assets/Images/countries/portugal.webp";
-import uaeFlag from "../assets/Images/countries/uae.webp";
-import panamaFlag from "../assets/Images/countries/panama.webp";
-import mauritiusFlag from "../assets/Images/countries/mauritius.webp";
-import thailandFlag from "../assets/Images/countries/Thailand.webp";
-import estoniaFlag from "../assets/Images/countries/estonia.webp";
-import brazilFlag from "../assets/Images/countries/Brazil.webp";
-import europeFlag from "../assets/Images/countries/europe.webp";
-import caribbeanFlag from "../assets/Images/countries/caribbean.webp";
+// Import country images
+import usaImage from "../assets/Images/countries/usa.webp";
+import canadaImage from "../assets/Images/countries/canada.webp";
+import portugalImage from "../assets/Images/countries/portugal.webp";
+import uaeImage from "../assets/Images/countries/uae.webp";
+import panamaImage from "../assets/Images/countries/panama.webp";
+import mauritiusImage from "../assets/Images/countries/mauritius.webp";
+import thailandImage from "../assets/Images/countries/Thailand.webp";
+import estoniaImage from "../assets/Images/countries/estonia.webp";
+import brazilImage from "../assets/Images/countries/Brazil.webp";
+import europeImage from "../assets/Images/countries/europe.webp";
+import caribbeanImage from "../assets/Images/countries/caribbean.webp";
 
 // Import images for business and legacy sections
 import structuringInvestmentsImg from "../assets/Images/countries/structuringinvestments.webp";
 import executiveRelocationImg from "../assets/Images/countries/businessrelocation.webp";
 import crossBorderExpansionImg from "../assets/Images/countries/crossborderexpansion.webp";
+import SEO from "../Components/Seo.jsx";
 
 const ServicesPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -43,20 +44,20 @@ const ServicesPage = () => {
     return () => observer.disconnect();
   }, []);
 
-  const flagImages = {
-    USA: usaFlag,
-    CANADA: canadaFlag,
-    PORTUGAL: portugalFlag,
-    UAE: uaeFlag,
-    PANAMA: panamaFlag,
-    MAURITIUS: mauritiusFlag,
-    THAILAND: thailandFlag,
-    ESTONIA: estoniaFlag,
-    BRAZIL: brazilFlag,
-    EUROPE: europeFlag,
-    CARIBBEAN: caribbeanFlag,
+  const countryImages = {
+    USA: usaImage,
+    CANADA: canadaImage,
+    PORTUGAL: portugalImage,
+    UAE: uaeImage,
+    PANAMA: panamaImage,
+    MAURITIUS: mauritiusImage,
+    THAILAND: thailandImage,
+    ESTONIA: estoniaImage,
+    BRAZIL: brazilImage,
+    EUROPE: europeImage,
+    CARIBBEAN: caribbeanImage,
     executiveRelocationImg: executiveRelocationImg,
-    structuringInvestmentsImg:structuringInvestmentsImg
+    structuringInvestmentsImg: structuringInvestmentsImg
   };
 
   const serviceCards = [
@@ -130,8 +131,8 @@ const ServicesPage = () => {
       {/* Image at the top of the card */}
       <div className="w-full h-48 overflow-hidden bg-gray-100 flex items-center justify-center">
         <img
-          src={flagImages[service.flag]}
-          alt={`${service.flag} flag`}
+          src={countryImages[service.flag]}
+          alt={`${service.flag} country`}
           className="w-full h-full object-cover"
         />
       </div>
@@ -171,6 +172,7 @@ const ServicesPage = () => {
 
   return (
     <>
+    <SEO/>
       <Navbar />
       <div className="min-h-screen bg-white">
         {/* Hero Banner Section */}
@@ -258,7 +260,7 @@ const ServicesPage = () => {
 
         {/* CTA Section */}
         <section
-          className="py-16 px-4 md:px-8 bg-[#1E453E]"
+          className="py-16 px-4 md:px-8 bg-[#1E453E] mb-10 mr-10 ml-10 rounded-xl"
           ref={(el) => (sectionRefs.current[3] = el)}
         >
           <div className="max-w-4xl mx-auto text-center">

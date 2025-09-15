@@ -1,4 +1,5 @@
 import React from "react";
+import SEO from "../Components/Seo";
 
 const ServicesSection = () => {
   const PassportIcon = (props) => (
@@ -198,11 +199,12 @@ const ServicesSection = () => {
     },
   ];
 
-   return (
+  return (
     <section
       className="w-full py-12 md:py-16 bg-[#F8F9FA]"
       aria-labelledby="services-heading"
     >
+      <SEO />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-24">
         <div className="text-center mb-8 md:mb-12">
           <h2

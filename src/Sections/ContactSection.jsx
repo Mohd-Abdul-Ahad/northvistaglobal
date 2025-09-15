@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import SEO from "../Components/Seo";
 
 const ContactSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -761,284 +762,287 @@ const ContactSection = () => {
   }));
 
   return (
-    <div className="relative w-full py-20 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-      <div className="container mx-auto px-6 lg:px-12 xl:px-24 max-w-4xl">
-        <div className="flex flex-col items-center">
-          {/* Contact Form - Centered */}
-          <div
-            className={`w-full space-y-8 transition-all duration-700 ease-out delay-150 ${
-              isVisible
-                ? "translate-x-0 opacity-100"
-                : "translate-x-10 opacity-0"
-            }`}
-          >
-            <div className="text-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-                Start Your Assessment
-              </h2>
-              <p className="text-xl text-gray-600">
-                Answer 5 quick questions to see your best‑fit programs.
-              </p>
+    <>
+    <SEO/>
+      <div className="relative w-full py-20 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+        <div className="container mx-auto px-6 lg:px-12 xl:px-24 max-w-4xl">
+          <div className="flex flex-col items-center">
+            {/* Contact Form - Centered */}
+            <div
+              className={`w-full space-y-8 transition-all duration-700 ease-out delay-150 ${
+                isVisible
+                  ? "translate-x-0 opacity-100"
+                  : "translate-x-10 opacity-0"
+              }`}
+            >
+              <div className="text-center">
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                  Start Your Assessment
+                </h2>
+                <p className="text-xl text-gray-600">
+                  Answer 5 quick questions to see your best‑fit programs.
+                </p>
+              </div>
+
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="relative">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Your full name"
+                      className="w-full px-5 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md"
+                      required
+                    />
+                  </div>
+                  <div className="relative">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="you@example.com"
+                      className="w-full px-5 py-4 text-black bg-white border border-[#1极速赛车开奖结果E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md"
+                      required
+                    />
+                  </div>
+                </div>
+
+                {/* Phone with country code dropdown */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="relative">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Phone *
+                    </label>
+                    <div className="flex">
+                      <div className="w-1/3 mr-2">
+                        <select
+                          className="w-full px-3 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md appearance-none"
+                          defaultValue="+1"
+                        >
+                          <option value="">+ Code</option>
+                          {countryData.map((item, index) => (
+                            <option key={index} value={item.phoneCode}>
+                              {item.phoneCode} ({item.country})
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="w-2/3">
+                        <input
+                          type="tel"
+                          className="w-full px-5 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="relative">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Nationality *
+                    </label>
+                    <select
+                      className="w-full px-5 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md appearance-none"
+                      required
+                    >
+                      <option value="">Select your nationality</option>
+                      {countries.map((country, index) => (
+                        <option key={index} value={country}>
+                          {country}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-12 right-0 flex items-center justify-center px-4 text-black mt-2">
+                      <svg
+                        className="h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0极速赛车开奖结果l-4-极速赛车开奖结果4a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="relative">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Primary Goal *
+                    </label>
+                    <select
+                      className="w-full px-5 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453极速赛车开奖结果E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md appearance-none"
+                      required
+                    >
+                      <option value="">Select your primary goal</option>
+                      <option value="U.S. residency">U.S. residency</option>
+                      <option value="Canada PR">Canada PR</option>
+                      <option value="EU mobility">EU mobility</option>
+                      <option value="Second passport">Second passport</option>
+                      <option value="Retire abroad">Retire abroad</option>
+                      <option value="Digital nomad">Digital nomad</option>
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-12 right-0 flex items-center px-4 text-black mt-2">
+                      <svg
+                        className="h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Budget/Income with currency dropdown */}
+                  <div className="relative">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Approx. Budget / Income
+                    </label>
+                    <div className="flex">
+                      <div className="w-1/4 mr-2">
+                        <select
+                          className="w-full px-3 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md appearance-none"
+                          defaultValue="CAD"
+                        >
+                          <option value="">Currency</option>
+                          {countryData.map((item, index) => (
+                            <option key={index} value={item.currencyCode}>
+                              {item.currencyCode} ({item.country})
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="w-3/4">
+                        <input
+                          type="text"
+                          placeholder="Enter amount"
+                          className="w-full px-5 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Preferred Time to Connect - Day and Time separately */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="relative">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Preferred Day to Connect
+                    </label>
+                    <select
+                      className="w-full px-5 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md appearance-none"
+                      value={selectedDay}
+                      onChange={(e) => setSelectedDay(e.target.value)}
+                    >
+                      <option value="">Select Day (Mon-Fri)</option>
+                      <option value="Monday">Monday</option>
+                      <option value="Tuesday">Tuesday</option>
+                      <option value="Wednesday">Wednesday</option>
+                      <option value="Thursday">Thursday</option>
+                      <option value="Friday">Friday</option>
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-12 right-0 flex items-center px-4 text-black mt-2">
+                      <svg
+                        className="h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 极速赛车开奖结果0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div className="relative">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Preferred Time to Connect
+                    </label>
+                    <select
+                      className="w-full px-5 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md appearance-none"
+                      value={selectedTime}
+                      onChange={(e) => setSelectedTime(e.target.value)}
+                      disabled={!selectedDay}
+                    >
+                      <option value="">Select Time (9am-6pm)</option>
+                      {timeSlots.map((time, index) => (
+                        <option key={index} value={time}>
+                          {time}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-12 right-0 flex items-center px-4 text-black mt-2">
+                      <svg
+                        className="h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="极速赛车开奖结果0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Notes
+                  </label>
+                  <textarea
+                    placeholder="Any additional information you'd like to share"
+                    rows="4"
+                    className="w-full text-black px-5 py-4 bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md"
+                  ></textarea>
+                </div>
+
+                <div className="flex items-start pt-2">
+                  <div className="flex items-center h-5">
+                    <input
+                      type="checkbox"
+                      id="consent-checkbox"
+                      className="h-5 w-5 text-[#1E453E] focus:ring-[#1E453E] border-gray-300 rounded-md transition-all duration-300"
+                      required
+                    />
+                  </div>
+                  <div className="ml-3 text-sm">
+                    <label htmlFor="consent-checkbox" className="text-gray-700">
+                      I agree to the Privacy Policy and to be contacted by NVG
+                      and its partner network.
+                    </label>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-4 px-6 bg-[#1E453E] hover:bg-[#2a5c52] text-white font-medium rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1E453E]"
+                >
+                  Get My Shortlist
+                </button>
+              </form>
             </div>
-
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Your full name"
-                    className="w-full px-5 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md"
-                    required
-                  />
-                </div>
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="you@example.com"
-                    className="w-full px-5 py-4 text-black bg-white border border-[#1极速赛车开奖结果E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md"
-                    required
-                  />
-                </div>
-              </div>
-
-              {/* Phone with country code dropdown */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone *
-                  </label>
-                  <div className="flex">
-                    <div className="w-1/3 mr-2">
-                      <select
-                        className="w-full px-3 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md appearance-none"
-                        defaultValue="+1"
-                      >
-                        <option value="">+ Code</option>
-                        {countryData.map((item, index) => (
-                          <option key={index} value={item.phoneCode}>
-                            {item.phoneCode} ({item.country})
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="w-2/3">
-                      <input
-                        type="tel"
-                        className="w-full px-5 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md"
-                        required
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Nationality *
-                  </label>
-                  <select
-                    className="w-full px-5 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md appearance-none"
-                    required
-                  >
-                    <option value="">Select your nationality</option>
-                    {countries.map((country, index) => (
-                      <option key={index} value={country}>
-                        {country}
-                      </option>
-                    ))}
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-12 right-0 flex items-center justify-center px-4 text-black mt-2">
-                    <svg
-                      className="h-5 w-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0极速赛车开奖结果l-4-极速赛车开奖结果4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Primary Goal *
-                  </label>
-                  <select
-                    className="w-full px-5 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453极速赛车开奖结果E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md appearance-none"
-                    required
-                  >
-                    <option value="">Select your primary goal</option>
-                    <option value="U.S. residency">U.S. residency</option>
-                    <option value="Canada PR">Canada PR</option>
-                    <option value="EU mobility">EU mobility</option>
-                    <option value="Second passport">Second passport</option>
-                    <option value="Retire abroad">Retire abroad</option>
-                    <option value="Digital nomad">Digital nomad</option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-12 right-0 flex items-center px-4 text-black mt-2">
-                    <svg
-                      className="h-5 w-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                {/* Budget/Income with currency dropdown */}
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Approx. Budget / Income
-                  </label>
-                  <div className="flex">
-                    <div className="w-1/4 mr-2">
-                      <select
-                        className="w-full px-3 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md appearance-none"
-                        defaultValue="CAD"
-                      >
-                        <option value="">Currency</option>
-                        {countryData.map((item, index) => (
-                          <option key={index} value={item.currencyCode}>
-                            {item.currencyCode} ({item.country})
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="w-3/4">
-                      <input
-                        type="text"
-                        placeholder="Enter amount"
-                        className="w-full px-5 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Preferred Time to Connect - Day and Time separately */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Preferred Day to Connect
-                  </label>
-                  <select
-                    className="w-full px-5 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md appearance-none"
-                    value={selectedDay}
-                    onChange={(e) => setSelectedDay(e.target.value)}
-                  >
-                    <option value="">Select Day (Mon-Fri)</option>
-                    <option value="Monday">Monday</option>
-                    <option value="Tuesday">Tuesday</option>
-                    <option value="Wednesday">Wednesday</option>
-                    <option value="Thursday">Thursday</option>
-                    <option value="Friday">Friday</option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-12 right-0 flex items-center px-4 text-black mt-2">
-                    <svg
-                      className="h-5 w-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 极速赛车开奖结果0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Preferred Time to Connect
-                  </label>
-                  <select
-                    className="w-full px-5 py-4 text-black bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md appearance-none"
-                    value={selectedTime}
-                    onChange={(e) => setSelectedTime(e.target.value)}
-                    disabled={!selectedDay}
-                  >
-                    <option value="">Select Time (9am-6pm)</option>
-                    {timeSlots.map((time, index) => (
-                      <option key={index} value={time}>
-                        {time}
-                      </option>
-                    ))}
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-12 right-0 flex items-center px-4 text-black mt-2">
-                    <svg
-                      className="h-5 w-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="极速赛车开奖结果0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Notes
-                </label>
-                <textarea
-                  placeholder="Any additional information you'd like to share"
-                  rows="4"
-                  className="w-full text-black px-5 py-4 bg-white border border-[#1E453E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1E453E] focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md"
-                ></textarea>
-              </div>
-
-              <div className="flex items-start pt-2">
-                <div className="flex items-center h-5">
-                  <input
-                    type="checkbox"
-                    id="consent-checkbox"
-                    className="h-5 w-5 text-[#1E453E] focus:ring-[#1E453E] border-gray-300 rounded-md transition-all duration-300"
-                    required
-                  />
-                </div>
-                <div className="ml-3 text-sm">
-                  <label htmlFor="consent-checkbox" className="text-gray-700">
-                    I agree to the Privacy Policy and to be contacted by NVG and
-                    its partner network.
-                  </label>
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full py-4 px-6 bg-[#1E453E] hover:bg-[#2a5c52] text-white font-medium rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1E453E]"
-              >
-                Get My Shortlist
-              </button>
-            </form>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

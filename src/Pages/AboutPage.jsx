@@ -2,6 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import HeroBanner from "../assets/Images/shakinghands.webp";
 import Navbar from "../Components/Navbar.jsx";
 import Footer from "../Components/Footer.jsx";
+import SEO from "../Components/Seo.jsx";
+import { Link } from "react-router-dom";
+import SampannImg from "../assets/Leadership/sampannmalhotra.jpg";
+import NabeelImg from "../assets/Leadership/nabeelkhan.jpg";
 
 const AboutPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -13,7 +17,7 @@ const AboutPage = () => {
       id: 1,
       name: "Nabeel Khan",
       role: "Founder, North Vista Immigration",
-      image: "/api/placeholder/200/200",
+      image: NabeelImg,
       fullBio:
         "With extensive experience in immigration consulting, Nabeel Khan founded North Vista Immigration with a vision to simplify global mobility. Nabeel has over 15 years of experience in immigration consulting and has helped thousands of clients achieve their dreams. He specializes in investor immigration programs and has built strong relationships with immigration authorities worldwide.",
     },
@@ -21,7 +25,7 @@ const AboutPage = () => {
       id: 2,
       name: "Sampann Malhotra",
       role: "Director, SMGC | Business Development Consultant at NVI",
-      image: "/api/placeholder/200/200",
+      image: SampannImg,
       fullBio:
         "Sampann Malhotra brings strategic vision and business development expertise to the partnership, driving growth initiatives. With a background in international business development, Sampann Malhotra has successfully expanded operations across multiple continents. His strategic insights have been instrumental in developing innovative immigration solutions for high-net-worth individuals.",
     },
@@ -171,6 +175,7 @@ const AboutPage = () => {
 
   return (
     <>
+      <SEO />
       <Navbar />
       <div className="min-h-screen bg-white">
         {/* Hero Banner Section - Fixed */}
@@ -178,15 +183,15 @@ const AboutPage = () => {
           className="relative h-screen flex items-center justify-center bg-cover bg-center overflow-hidden"
           ref={(el) => (sectionRefs.current[0] = el)}
         >
-          <div 
+          <div
             className="absolute inset-0 z-0"
             style={{
               backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${HeroBanner})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              width: '100%',
-              height: '100%'
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              width: "100%",
+              height: "100%",
             }}
           ></div>
           <div
@@ -205,7 +210,10 @@ const AboutPage = () => {
               professionals to unlock opportunity beyond borders through
               tailored strategies and a trusted partner network.
             </p>
-            <Link to="/contact" className="bg-[#1E453E] hover:bg-[#2a5c52] text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1">
+            <Link
+              to="/contact"
+              className="bg-[#1E453E] hover:bg-[#2a5c52] text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1"
+            >
               Book a Free Consultation
             </Link>
           </div>
@@ -308,7 +316,7 @@ const AboutPage = () => {
                     {/* Main Card and Expanded Panel Container */}
                     <div className="flex flex-col md:flex-row">
                       {/* Team Member Card */}
-                      <div className="w-full md:w-[380px] h-[450px] border border-gray-200 rounded-t-xl md:rounded-l-xl md:rounded-r-none overflow-hidden shadow-md bg-white transition-all duration-300 hover:shadow-lg">
+                      <div className="w-full md:w-[380px] h-[650px] border border-gray-200 rounded-t-xl md:rounded-l-xl md:rounded-r-none overflow-hidden shadow-md bg-white transition-all duration-300 hover:shadow-lg">
                         <div className="h-3/5 w-full overflow-hidden">
                           <img
                             src={member.image}
@@ -346,7 +354,7 @@ const AboutPage = () => {
                             : "w-0 h-0 opacity-0"
                         }`}
                       >
-                        <div className="w-full md:w-[380px] h-[450px] border border-gray-200 border-t-0 md:border-t md:border-l-0 rounded-b-xl md:rounded-r-xl bg-white shadow-md p-6 flex flex-col">
+                        <div className="w-full md:w-[380px] h-[650px] border border-gray-200 border-t-0 md:border-t md:border-l-0 rounded-b-xl md:rounded-r-xl bg-white shadow-md p-6 flex flex-col">
                           <h3 className="text-2xl font-semibold text-[#1E453E] font-playfair mb-2">
                             About {member.name}
                           </h3>
@@ -484,7 +492,10 @@ const AboutPage = () => {
                 expansion expertise, backed by a global network of vetted,
                 licensed partners.
               </p>
-              <Link to="/contact" className="bg-[#1E453E] hover:bg-[#2a5c52] text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1">
+              <Link
+                to="/contact"
+                className="bg-[#1E453E] hover:bg-[#2a5c52] text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1"
+              >
                 Book a Free Consultation
               </Link>
             </div>

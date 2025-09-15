@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../Components/Navbar";
-import Topbar from "../Components/Topbar";
 import HeroBannerImg from "../assets/Images/herobannerr.webp";
 
 const Herobanner = () => {
-  const [isTopbarVisible, setIsTopbarVisible] = useState(true);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,15 +31,8 @@ const Herobanner = () => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30 z-0" />
 
-      {/* Topbar and Navbar */}
+
       <div className="relative z-20">
-        <div
-          className={`transition-all duration-300 ${
-            isTopbarVisible ? "opacity-100" : "opacity-0 h-0 overflow-hidden"
-          }`}
-        >
-          {/* Optional Topbar content */}
-        </div>
         <Navbar />
       </div>
 

@@ -1,16 +1,16 @@
 import React, { useState, useMemo, useEffect } from "react";
-import usaFlag from "../assets/Images/countries/usa.webp";
-import canadaFlag from "../assets/Images/countries/canada.webp";
-import portugalFlag from "../assets/Images/countries/portugal.webp";
-import uaeFlag from "../assets/Images/countries/uae.webp";
-import panamaFlag from "../assets/Images/countries/panama.webp";
-import mauritiusFlag from "../assets/Images/countries/mauritius.webp";
-import thailandFlag from "../assets/Images/countries/Thailand.webp";
-import estoniaFlag from "../assets/Images/countries/estonia.webp";
-import brazilFlag from "../assets/Images/countries/Brazil.webp";
-import indonesiaFlag from "../assets/Images/countries/Indonesia.webp";
-import caribbeanFlag from "../assets/Images/countries/caribbean.webp";
-import europeFlag from "../assets/Images/countries/europe.webp";
+import usaImage from "../assets/Images/countries/usa.webp";
+import canadaImage from "../assets/Images/countries/canada.webp";
+import portugalImage from "../assets/Images/countries/portugal.webp";
+import uaeImage from "../assets/Images/countries/uae.webp";
+import panamaImage from "../assets/Images/countries/panama.webp";
+import mauritiusImage from "../assets/Images/countries/mauritius.webp";
+import thailandImage from "../assets/Images/countries/Thailand.webp";
+import estoniaImage from "../assets/Images/countries/estonia.webp";
+import brazilImage from "../assets/Images/countries/Brazil.webp";
+import indonesiaImage from "../assets/Images/countries/Indonesia.webp";
+import caribbeanImage from "../assets/Images/countries/caribbean.webp";
+import europeImage from "../assets/Images/countries/europe.webp";
 import ColombiaImage from "../assets/Images/countries/Colombia.jpg";
 
 // Import images for business and legacy sections
@@ -21,6 +21,9 @@ import educationImg from "../assets/Images/countries/education.webp";
 import healthcareImg from "../assets/Images/countries/healthcare.webp";
 import wealthDiversificationImg from "../assets/Images/countries/wealthdiversification.webp";
 import successionPlanningImg from "../assets/Images/countries/successionplanning.webp";
+import SEO from "../Components/Seo";
+
+import { Link } from "react-router-dom";
 
 const ProgramsSection = () => {
   const [activeTab, setActiveTab] = useState("residence");
@@ -38,19 +41,19 @@ const ProgramsSection = () => {
     }
   }, []);
 
-  const flagImages = {
-    USA: usaFlag,
-    CANADA: canadaFlag,
-    PORTUGAL: portugalFlag,
-    UAE: uaeFlag,
-    PANAMA: panamaFlag,
-    MAURITIUS: mauritiusFlag,
-    THAILAND: thailandFlag,
-    ESTONIA: estoniaFlag,
-    BRAZIL: brazilFlag,
-    INDONESIA: indonesiaFlag,
-    CARIBBEAN: caribbeanFlag,
-    EUROPE: europeFlag,
+  const countryImages = {
+    USA: usaImage,
+    CANADA: canadaImage,
+    PORTUGAL: portugalImage,
+    UAE: uaeImage,
+    PANAMA: panamaImage,
+    MAURITIUS: mauritiusImage,
+    THAILAND: thailandImage,
+    ESTONIA: estoniaImage,
+    BRAZIL: brazilImage,
+    INDONESIA: indonesiaImage,
+    CARIBBEAN: caribbeanImage,
+    EUROPE: europeImage,
     COLOMBIA: ColombiaImage,
   };
 
@@ -317,9 +320,9 @@ const ProgramsSection = () => {
     <div className="bg-white rounded-lg border border-[#1E453E]/20 h-full flex flex-col transition-all duration-300 hover:shadow-lg overflow-hidden">
       {/* Image at the top of the card */}
       <div className="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 overflow-hidden">
-        {flagImages[program.flag] ? (
+        {countryImages[program.flag] ? (
           <img
-            src={flagImages[program.flag]}
+            src={countryImages[program.flag]}
             loading="lazy"
             alt={`${program.name} flag`}
             className="w-full h-full object-cover"
@@ -398,9 +401,11 @@ const ProgramsSection = () => {
               </p>
             </div>
           </div>
-          <button className="w-full px-3 py-2 md:px-4 md:py-2.5 bg-[#1E453E] text-white hover:bg-[#2a5c52] rounded text-sm font-medium transition-colors">
-            {program.cta || "Learn More"}
-          </button>
+          <Link to="/contact">
+            <button className="w-full px-3 py-2 md:px-4 md:py-2.5 bg-[#1E453E] text-white hover:bg-[#2a5c52] rounded text-sm font-medium transition-colors">
+              {program.cta || "Learn More"}
+            </button>
+          </Link>
         </div>
       </div>
     </div>
@@ -429,40 +434,43 @@ const ProgramsSection = () => {
   }, [activeTab]);
 
   return (
-    <div id="programs" className="w-full py-12 md:py-16 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6">
-        {/* Page Header */}
-        <div className="text-center mb-8 md:mb-10 animate-fade-in">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl text-[#1E453E] font-bold mb-3">
-            Our Services
-          </h1>
-          <p className="text-gray-600 max-w-3xl mx-auto px-2 text-sm md:text-base">
-            Discover our comprehensive range of global immigration and
-            investment programs tailored to your needs.
-          </p>
-        </div>
+    <>
+      <SEO />
+      <div id="programs" className="w-full py-12 md:py-16 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6">
+          {/* Page Header */}
+          <div className="text-center mb-8 md:mb-10 animate-fade-in">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl text-[#1E453E] font-bold mb-3">
+              Our Services
+            </h1>
+            <p className="text-gray-600 max-w-3xl mx-auto px-2 text-sm md:text-base">
+              Discover our comprehensive range of global immigration and
+              investment programs tailored to your needs.
+            </p>
+          </div>
 
-        {/* Tabs */}
-        <TabNavigation />
+          {/* Tabs */}
+          <TabNavigation />
 
-        {/* Content */}
-        <div className="mb-10 md:mb-12">
-          <SectionHeader
-            title={activeData.label}
-            description={`Explore opportunities for ${activeData.label.toLowerCase()} around the world.`}
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {activeData.data.map((program, idx) => (
-              <ProgramCard
-                key={idx}
-                program={program}
-                type={activeData.label}
-              />
-            ))}
+          {/* Content */}
+          <div className="mb-10 md:mb-12">
+            <SectionHeader
+              title={activeData.label}
+              description={`Explore opportunities for ${activeData.label.toLowerCase()} around the world.`}
+            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              {activeData.data.map((program, idx) => (
+                <ProgramCard
+                  key={idx}
+                  program={program}
+                  type={activeData.label}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

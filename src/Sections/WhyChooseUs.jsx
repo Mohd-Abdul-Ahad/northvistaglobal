@@ -47,10 +47,12 @@ const WhyChooseUs = () => {
 
             {/* CTA */}
             <div className="text-left">
-              <button className="px-10 py-4 bg-[#1E453E] text-white text-lg rounded-md font-medium transition-all duration-300 transform hover:-translate-y-1">
-                <Link to="/contact"> Book a Free Consultation</Link>
-              </button>
-              <p className="text-[#6B7280] text-base mt-4"  >
+              <Link to="/contact">
+                <button className="px-10 py-4 bg-[#1E453E] text-white text-lg rounded-md font-medium transition-all duration-300 transform hover:-translate-y-1">
+                  Book a Free Consultation
+                </button>
+              </Link>
+              <p className="text-[#6B7280] text-base mt-4">
                 Schedule a free consultation with our experts
               </p>
             </div>

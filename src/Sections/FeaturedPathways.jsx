@@ -2,6 +2,7 @@ import React from "react";
 import usaFlag from "../assets/Images/countries/usa.webp";
 import canadaFlag from "../assets/Images/countries/canada.webp";
 import panamaFlag from "../assets/Images/countries/panama.webp";
+import { Link } from "react-router-dom";
 
 const FeaturedPathways = () => {
   const featuredPrograms = [
@@ -54,7 +55,7 @@ const FeaturedPathways = () => {
     PANAMA: panamaFlag,
   };
 
-    const ProgramCard = ({ program }) => (
+  const ProgramCard = ({ program }) => (
     <div className="bg-white rounded-lg border border-[#1E453E]/20 h-full flex flex-col transition-all duration-300 hover:shadow-lg overflow-hidden">
       {/* Image at the top of the card */}
       <div className="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 overflow-hidden">
@@ -103,7 +104,9 @@ const FeaturedPathways = () => {
             {program.investment && (
               <div className="flex-1">
                 <p className="uppercase mb-1 font-semibold">Investment</p>
-                <p className="font-bold text-[#1E453E] break-words">{program.investment}</p>
+                <p className="font-bold text-[#1E453E] break-words">
+                  {program.investment}
+                </p>
               </div>
             )}
             {program.processing && (
@@ -121,9 +124,11 @@ const FeaturedPathways = () => {
               </p>
             </div>
           </div>
-          <button className="w-full px-3 py-2 md:px-4 md:py-2.5 bg-[#1E453E] text-white hover:bg-[#2a5c52] rounded text-sm font-medium transition-colors">
-            {program.cta || "Learn More"}
-          </button>
+          <Link to="/contact">
+            <button className="w-full px-3 py-2 md:px-4 md:py-2.5 bg-[#1E453E] text-white hover:bg-[#2a5c52] rounded text-sm font-medium transition-colors">
+              {program.cta || "Learn More"}
+            </button>
+          </Link>
         </div>
       </div>
     </div>
